@@ -49,8 +49,10 @@ public class PivotAroundPoint : MonoBehaviour
             _targetDistance = Mathf.Clamp(_targetDistance, 10, 50);
 
             // lerping angles
-            YawAngleFromPoint = Mathf.LerpAngle(YawAngleFromPoint, _targetYaw, .1f);
-            DistanceFromPoint = Mathf.Lerp(DistanceFromPoint, _targetDistance, .025f);
+            // We lerp these relative to a 144f framerate because that's the framerate I had when I was setting this up.
+            // It's entirely arbitrary and we can adjust it for 60 in the future if it's REEEALLY necessary.
+            YawAngleFromPoint = Mathf.LerpAngle(YawAngleFromPoint, _targetYaw, (.1f / (1f/144f)) * Time.deltaTime);
+            DistanceFromPoint = Mathf.Lerp(DistanceFromPoint, _targetDistance, (.025f / (1f/144f)) * Time.deltaTime);
 
             // reset mouse position
             _lastMousePosition = Input.mousePosition;
