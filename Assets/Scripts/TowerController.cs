@@ -18,17 +18,19 @@ public class TowerController : MonoBehaviour {
 		targets = new Queue<GameObject> ();
 	}
 
-	void OnTriggerEnter(Collider other) {
-		if (other.tag == "Target") {
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.CompareTag("Enemy"))
+		{
 			targets.Enqueue(other.gameObject);
-			
 			if(!tracking)
 				StartCoroutine(Attack());
 		}
 	}
 
 	void OnTriggerExit(Collider other) {
-		if (other.tag == "Target" && targets.Count == 0) {
+        if (other.CompareTag("Enemy") && targets.Count == 0)
+        {
 			tracking = false;
 		}
 	}
@@ -45,7 +47,7 @@ public class TowerController : MonoBehaviour {
 				Quaternion dest = Quaternion.LookRotation (relativePos);
 				Quaternion look = Quaternion.RotateTowards (gameObject.transform.rotation, dest, angularSpeed * Time.deltaTime);
 				gameObject.transform.rotation = look;
-				
+
 				// Shoot at target if turret is pointing at it
 				if(Quaternion.Angle(look, dest) < angularSpeed * Time.deltaTime)
 					BroadcastMessage ("ShootAt", target);	

@@ -16,6 +16,7 @@ public class TowerBarrelController : MonoBehaviour {
 	void ShootAt(GameObject target) {
 		if (Time.time > nextShot) {
 			GameObject b = Instantiate(bullet, bulletSpawn.position, gameObject.transform.rotation) as GameObject;
+		    b.hideFlags = HideFlags.HideInHierarchy;
 			b.SendMessage("SetTarget", target);
 			nextShot = Time.time + fireRate;
 			audio.Play();

@@ -11,6 +11,9 @@ public class TDProjectile : MonoBehaviour {
 	/* Guaranteed time to target (in seconds) */
 	public float hitTime;
 
+    /** Damage to apply. */
+    public float Damage;
+
 	private GameObject target;
 	private float speed;
 
@@ -28,15 +31,16 @@ public class TDProjectile : MonoBehaviour {
 		RaycastHit hit;
 		if(Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit, 2.0f * speed * Time.deltaTime)) {
 			// If it hits a target, destroy both the bullet and a target. Detach the particle system.
-			if(hit.collider.gameObject.tag == "Target") {
-				hit.collider.gameObject.SendMessage("Kill");
+			if(hit.collider.gameObject.tag == "Enemy") {
+				hit.collider.gameObject.SendMessage("ApplyDamage", Damage, SendMessageOptions.DontRequireReceiver);
+                Destroy(gameObject);
 				transform.DetachChildren();
 			}
 			// if it hits anything else that isn't a tower, destroy the bullet. Detach the particle system.
-			if(hit.collider.gameObject.tag != "Tower") {
+			/*if(hit.collider.gameObject.tag != "Tower") {
 				Destroy(gameObject);
 				transform.DetachChildren();
-			}
+			}*/
 		}
 		// move forward
 		gameObject.transform.position += transform.forward * speed * Time.deltaTime;
