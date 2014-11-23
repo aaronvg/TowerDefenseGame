@@ -4,15 +4,33 @@ using System.Collections;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyBehavior : MonoBehaviour
 {
-    private NavMeshAgent _navMeshAgent;
+    private Canvas _canvas;
+
+    public GameObject UIHealthbarPrefab;
+    private GameObject _healthbar;
+    private float _defaultHealthbarLength;
 
     [Range(1,20)] public float Health = 10;
+    private float _maxHealth;
 
     public Transform Destination;
 	// Use this for initialization
 	void Start ()
 	{
-	    _navMeshAgent = GetComponent<NavMeshAgent>();
+        _maxHealth = Health;
+
+        // handle healthbar UI
+        var canvas = FindObjectOfType<Canvas>();
+        if (canvas)
+        {
+            _canvas = canvas;
+            var hb = (GameObject) Instantiate(UIHealthbarPrefab);
+            hb.GetComponent<RectTransform>().SetParent(_canvas.GetComponent<RectTransform>());
+            hb.GetComponent<RectTransform>().position = new Vector3();
+            _healthbar = hb;
+            hb.SendMessage("SetMaxHealth", _maxHealth);
+            hb.GetComponent<HealthbarUIHandler>().TrackingObject = transform;
+        }
 	}
 	
 	// Update is called once per frame
@@ -37,6 +55,11 @@ public class EnemyBehavior : MonoBehaviour
     void ApplyDamage(float Damage)
     {
         Health -= Damage;
+
+        if (_healthbar)
+        {
+            _healthbar.SendMessage("SetHealth", Health);
+        }
         if (Health <= 0)
         {
             Destroy(gameObject);

@@ -86,6 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 210cefaa8ba1da2489772ab99e997e47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UIHealthbarPrefab: {fileID: 100000, guid: 4e8302b998e57eb47a189b13934a370f, type: 2}
   Health: 4
   Destination: {fileID: 0}
 --- !u!136 &13600000
