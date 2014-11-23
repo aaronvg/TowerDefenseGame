@@ -20,24 +20,22 @@
 			struct v2f {
 				float4 pos : SV_POSITION;
 				float4 uv : TEXCOORD0;
-				float4 screenPos : TEXCOORD1;
 			};
 
 			v2f vert (appdata v) {
 				v2f o;
 				o.uv = float4(v.texcoord.xy, 0, 0);
 				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
-				o.screenPos = ComputeScreenPos(o.pos);
-				o.screenPos /= o.screenPos.w;
 				return o;
 			}
 
 			float4 frag (v2f i) : COLOR {
+				float4 subuv = i.uv;
+				i.uv.x += _Time;
+				subuv.y += _Time * 2;
 				float4 ret = tex2D(_MainTex, i.uv);
-				float4 sub = i.screenPos;
-				sub.y += _Time;
-				sub.x *= _ScreenParams.x / _ScreenParams.y;
-				ret = ret + tex2D(_MainTex, sub * 16) * .35;
+				float4 sub = tex2D(_MainTex, subuv * 4);
+				ret = ret + sub;
 				return ret;
 			}
 			ENDCG
