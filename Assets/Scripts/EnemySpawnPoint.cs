@@ -18,7 +18,7 @@ public class EnemySpawnPoint : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-	    if (Spawning && !IsInvoking("SpawnEnemy"))
+	    if (Spawning && !IsInvoking("SpawnEnemy") && SpawnCount > 0)
 	    {
 	        Invoke("SpawnEnemy", 2f);
 	    }
@@ -34,6 +34,11 @@ public class EnemySpawnPoint : MonoBehaviour
 
         var go = (GameObject) Instantiate(EnemyToSpawn);
         go.SendMessage("SetDestination", InitialDestination);
+    }
+
+    void StartWave()
+    {
+        Spawning = true;
     }
 
     void OnDrawGizmos()
