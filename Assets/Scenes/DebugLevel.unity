@@ -346,6 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a988ccd58c1078b429ce103394fbc2cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angularSpeed: 90
 --- !u!1 &414321447
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,6 +1107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angularSpeed: 90
+  enemies:
+  - {fileID: 100000, guid: 24a04563346d96443b4267226082b20a, type: 2}
 --- !u!135 &1245096288
 SphereCollider:
   m_ObjectHideFlags: 0
