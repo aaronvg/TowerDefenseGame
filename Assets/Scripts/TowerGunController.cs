@@ -7,11 +7,15 @@ using System.Collections;
   **/
 public class TowerGunController : MonoBehaviour {
 
-	void ShootAt(GameObject target) {
+	/* Maximum delta angle per second */
+	public float angularSpeed;
+
+	void LookAt(GameObject target) {
 		Vector3 relativePos = transform.position - target.transform.position;
 		Quaternion dest = Quaternion.LookRotation(relativePos);
+		Quaternion look = Quaternion.RotateTowards (gameObject.transform.rotation, dest, angularSpeed * Time.deltaTime);
 		
-		Vector3 eulerAngles = dest.eulerAngles;
+		Vector3 eulerAngles = look.eulerAngles;
 		eulerAngles.y = gameObject.transform.eulerAngles.y;
 		eulerAngles.z = gameObject.transform.eulerAngles.z;
 		
