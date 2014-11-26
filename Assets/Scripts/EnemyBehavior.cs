@@ -7,6 +7,8 @@ public class EnemyBehavior : MonoBehaviour
     private Canvas _canvas;
 
     public GameObject UIHealthbarPrefab;
+    public GameObject deathAnimation;
+    
     private GameObject _healthbar;
     private float _defaultHealthbarLength;
 
@@ -62,6 +64,7 @@ public class EnemyBehavior : MonoBehaviour
         }
         if (Health <= 0)
         {
+        	Instantiate (deathAnimation, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
