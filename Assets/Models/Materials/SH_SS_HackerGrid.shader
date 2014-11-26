@@ -33,8 +33,8 @@
 				float4 subuv = i.uv;
 				i.uv.x += _Time;
 				subuv.y += _Time * 2;
-				float4 ret = tex2D(_MainTex, i.uv);
-				float4 sub = tex2D(_MainTex, subuv * 4);
+				float4 ret = tex2D(_MainTex, float2(i.uv.x, i.uv.y));
+				float4 sub = tex2D(_MainTex, float2(subuv.x * 4, subuv.y * 4));
 				ret = ret + sub;
 				return ret;
 			}
