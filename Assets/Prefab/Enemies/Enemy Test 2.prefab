@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIHealthbarPrefab: {fileID: 100000, guid: 4e8302b998e57eb47a189b13934a370f, type: 2}
-  deathAnimation: {fileID: 100000, guid: e0dd156065984b846859e7aa5283476d, type: 2}
+  deathAnimation: {fileID: 100000, guid: 9a5c69a5279a7144280455f20ee331c7, type: 2}
   Health: 4
   Destination: {fileID: 0}
   GameManager: {fileID: 0}
