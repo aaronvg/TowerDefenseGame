@@ -16,6 +16,7 @@ public class EnemyBehavior : MonoBehaviour
     private float _maxHealth;
 
     public Transform Destination;
+    public GameObject gimmick;
 	public GameObject GameManager;
 	public int NumPoints = 10;
 

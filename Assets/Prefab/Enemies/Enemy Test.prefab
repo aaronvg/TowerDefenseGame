@@ -90,7 +90,9 @@ MonoBehaviour:
   deathAnimation: {fileID: 100000, guid: e0dd156065984b846859e7aa5283476d, type: 2}
   Health: 4
   Destination: {fileID: 0}
-  SpawnPoint: {fileID: 0}
+  gimmick: {fileID: 100028, guid: c12b1cfff9692d344b5e023c79e5c893, type: 2}
+  GameManager: {fileID: 0}
+  NumPoints: 10
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
