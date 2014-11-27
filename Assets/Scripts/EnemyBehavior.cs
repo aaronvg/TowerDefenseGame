@@ -14,6 +14,9 @@ public class EnemyBehavior : MonoBehaviour
     private float _maxHealth;
 
     public Transform Destination;
+	public GameObject GameManager;
+	public int NumPoints = 10;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -46,7 +49,7 @@ public class EnemyBehavior : MonoBehaviour
 	    }
 	}
 
-    void SetDestination(Transform dest)
+    public void SetDestination(Transform dest)
     {
         Destination = dest;
         GetComponent<NavMeshAgent>().SetDestination(Destination.position);
@@ -63,6 +66,8 @@ public class EnemyBehavior : MonoBehaviour
         if (Health <= 0)
         {
             Destroy(gameObject);
+			GameManager.SendMessage ("UpdateCurrency", NumPoints);
+			GameManager.SendMessage ("KillEnemy");
         }
     }
 }
