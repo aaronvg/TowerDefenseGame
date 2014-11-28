@@ -1,11 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\Gimmicks\EmailComposer.cs">
     <Files>
+      <File FileName="Assets\Scripts\UI\Gimmicks\EmailComposer.cs" Line="118" Column="1" />
       <File FileName="Assets\Scripts\EnemySpawnPoint.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\ScoreAndCurrencyManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Models\Materials\SH_SS_HackerGrid.shader" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI\Gimmicks\EmailComposer.cs" Line="129" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -11,7 +11,7 @@ GameObject:
   - 222: {fileID: 22200000}
   - 114: {fileID: 11400000}
   m_Layer: 5
-  m_Name: Text
+  m_Name: InfoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ GameObject:
   - 222: {fileID: 22200002}
   - 114: {fileID: 11400002}
   m_Layer: 5
-  m_Name: Text
+  m_Name: MessageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,7 +151,7 @@ GameObject:
   - 222: {fileID: 22200016}
   - 114: {fileID: 11400020}
   m_Layer: 5
-  m_Name: Text
+  m_Name: HeaderText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -220,6 +220,7 @@ GameObject:
   - 114: {fileID: 11400030}
   - 114: {fileID: 11400028}
   - 114: {fileID: 11400032}
+  - 114: {fileID: 11400034}
   m_Layer: 5
   m_Name: FriendPopup
   m_TagString: Untagged
@@ -282,7 +283,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You and [name here] have xx mutual friends
+  m_Text: You have xx friends in common
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -576,7 +577,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Friend Request!
+  m_Text: '[name here] has sent you a friend request!'
 --- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -690,6 +691,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGood: 0
+--- !u!114 &11400034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74c8a13bde93f87429d266d4b1252cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headerText: {fileID: 100016}
+  infoText: {fileID: 100000}
+  messageText: {fileID: 100002}
 --- !u!222 &22200000
 CanvasRenderer:
   m_ObjectHideFlags: 1
