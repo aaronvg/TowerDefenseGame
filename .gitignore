@@ -10,6 +10,7 @@ Temp/
 *.csproj
 *.sln
 *.suo
+*.userprefs
 
 # No obj directory either!
 obj/
