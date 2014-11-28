@@ -18,22 +18,37 @@ public class DownloadComposer : MonoBehaviour {
 	}
 
 	private static Download[] good = {
-		new Download("FILE: RapidBrowserInstaller.exe",
-		             "SOURCE: rapidbrowser.org/64bit/download"),
+		new Download("RapidBrowserInstaller.exe",
+		             "rapidbrowser.org/64bit/download"),
 
-		new Download("FILE: MediaBoxClient.exe",
-		             "SOURCE: mediabox.com/public/download")
+		new Download("MediaBoxClient.exe",
+		             "mediabox.com/user/download"),
+
+		new Download("HifiPlayerInstall_64bit.exe",
+		             "hifiplayer.org/install"),
+
+		new Download("BabylonFirewall.exe",
+		             "babylon.com/download/secure"),
+
+		new Download("Setup.exe",
+		             "securevpn.org/about/download")
 	};
 
 	private static Download[] bad = {
-		new Download("FILE: KasinoKing.exe",
-		             "SOURCE: freegame.freehost.net/free/games"),
+		new Download("KasinoKing.exe",
+		             "freegame.freehost.net/free/games"),
 
-		new Download("FILE: lolcats.png.exe",
-		             "SOURCE: megadownload.com/FdsE56F3gdRGH4EPL436m"),
+		new Download("lolcats.png.exe",
+		             "megadownload.com/FdsE56F3gdRGH4EPL436m"),
 
-		new Download("FILE: towerdefense.jpg.exe",
-		             "SOURCE: gogle.ru/fungames")
+		new Download("towerdefense.jpg.exe",
+		             "gogle.ru/fungamescreens"),
+
+		new Download("23jumpstreet_bluray1080p.exe",
+		             "buccaneercove.se/torrents/video"),
+
+		new Download("deathgrips_themoneystore.exe",
+		             "freemp3bay.net/d/deathgrips/discog")
 	};
 
 	void Start () {
@@ -44,7 +59,7 @@ public class DownloadComposer : MonoBehaviour {
 		else
 			dl = bad [Random.Range (0, bad.Length)];
 		
-		fileText.GetComponent<Text> ().text = dl.file;
-		sourceText.GetComponent<Text> ().text = dl.source;
+		fileText.GetComponent<Text> ().text = "FILE: " + dl.file;
+		sourceText.GetComponent<Text> ().text = "SOURCE: " + dl.source;
 	}
 }
