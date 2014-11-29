@@ -22,4 +22,13 @@ public class TowerBarrelController : MonoBehaviour {
 			audio.Play();
 		}
 	}
+
+	/* Used by the download gimmick to buff the firerate */
+	void Buff() {
+		fireRate -= 0.1f;
+	}
+
+	void Debuff() {
+		fireRate += 0.1f;
+	}
 }

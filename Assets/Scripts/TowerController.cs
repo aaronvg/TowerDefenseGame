@@ -87,4 +87,14 @@ public class TowerController : MonoBehaviour {
 		}
 		return false;
 	}
+
+	/* Used by the download gimmick to buff the turret rotation speed */
+	void Buff() {
+		angularSpeed += 10;
+	}
+
+	/* Take a guess */
+	void Debuff() {
+		angularSpeed -= 10;
+	}
 }

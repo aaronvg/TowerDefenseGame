@@ -21,8 +21,8 @@ public class EmailComposer : MonoBehaviour {
 	}
 
 	private static Email[] good = {
-		new Email("From: admin@bestbank.com",
-		          "Subject: Thank you for applying for our online banking service!",
+		new Email("admin@bestbank.com",
+		          "Thank you for applying for our online banking service!",
 
 		          "Dear valued client,\n\n" +
 		          "Thank you for applying for our secure online banking service! " +
@@ -32,16 +32,16 @@ public class EmailComposer : MonoBehaviour {
 		          "account details. All such matters will only be discussed in person " +
 		          "at one of our many local branches. Have a pleasant day!"),
 
-		new Email("From: humanresources@towertech.org",
-		          "Subject: Still interested in a promotion? [URGENT]",
+		new Email("humanresources@towertech.org",
+		          "Still interested in a promotion? [URGENT]",
 
 		          "Hello, this is your friendly HR department wondering if you are still " +
 		          "interested in that promotion we discussed last week. A position just opened " +
 		          "up today, but you'll have to let me know if you would be willing to fill it " +
 		          "ASAP before someone else steps up."),
 
-		new Email("From: accountservices@socialshopper.com",
-		          "Subject: Account locked, action needed",
+		new Email("accountservices@socialshopper.com",
+		          "Account locked, action needed",
 
 		          "Our automated fraud detection system recently observed suspicious activity " +
 		          "regarding your account. The event is summarized below:\n\n" +
@@ -51,8 +51,8 @@ public class EmailComposer : MonoBehaviour {
 		          "02:05:07.0012 EST failed login attempt from Beijing, China\n\n" +
 		          "Please respond to this message to unlock your account and reset your password."),
 
-		new Email("From: swpixy@galmail.com",
-		          "Subject: Yo buddy, still alive?",
+		new Email("swpixy@galmail.com",
+		          "Yo buddy, still alive?",
 
 		          "Haven't seen you in a few days, just checking in to make sure you haven't starved " +
 		          "to death at your computer desk. This internet thing sure is great, huh? It's like " +
@@ -62,29 +62,29 @@ public class EmailComposer : MonoBehaviour {
 		          "I don't have to worry.\n\n" +
 		          "Thanks friend."),
 
-		new Email("From: Mom",
-		          "Subject: i got an email account!",
+		new Email("Mom",
+		          "i got an email account!",
 
 		          "hello sweetie its your mother. i just wanted to let u know that i finally got an email " +
 		          "account like u told me to. please respond so i can know if im using it right! ")
 	};
 
 	private static Email[] bad = {
-		new Email("From: congratulations@madmoneyprize.com",
-		          "Subject: Congratulations, you've won!",
+		new Email("congratulations@madmoneyprize.com",
+		          "Congratulations, you've won!",
 
 		          "Dear lucky winner,\n\n" +
 		          "Congratulations! You've won our $10,000 grand prize! Reply to this email " +
 		          "with your date of birth to claim your winnings!"),
 
-		new Email("From: admin@bestbank.biz",
-		          "Subject: Your account has been hacked! [URGENT]",
+		new Email("admin@bestbank.biz",
+		          "Your account has been hacked! [URGENT]",
 
 		          "Your Best Bank online account has been hacked! Please reply to this " +
 		          "email with your old password to verify your identity and reclaim your account!"),
 
-		new Email("From: Mom",
-		          "Subject: Make Cash Fast",
+		new Email("Mom",
+		          "Make Cash Fast",
 
 		          "Hello friend,\n\n" +
 		          "I would like to register you for this new website I found. With this website's " +
@@ -93,16 +93,16 @@ public class EmailComposer : MonoBehaviour {
 		          "Your friend,\n" +
 		          "Mom"),
 
-		new Email("From: helpdesk@towertech.net",
-		          "Subject: Routine server maintenance",
+		new Email("helpdesk@towertech.net",
+		          "Routine server maintenance",
 
 		          "Hello, this is the Tower Tech information technology helpdesk. We are doing some " +
 		          "routine server maintenance and need you to verify your employee account password. " +
 		          "Please reply to this email with your current password to ensure our database is " +
 		          "consistent. Have a nice day!"),
 
-		new Email("From: johnsmith@intermail.net",
-		          "Subject: I seek a reliable and honest benefactor",
+		new Email("johnsmith@intermail.net",
+		          "I seek a reliable and honest benefactor",
 
 		          "I seize this opportunity to extend my unalloyed compliments of the new season to " +
 		          "you and your family hoping that this year will bring more joy, happiness, and " +
@@ -123,8 +123,8 @@ public class EmailComposer : MonoBehaviour {
 		else
 			msg = bad [Random.Range (0, bad.Length)];
 
-		senderText.GetComponent<Text> ().text = msg.sender;
-		subjectText.GetComponent<Text> ().text = msg.subject;
+		senderText.GetComponent<Text> ().text = "From: " + msg.sender;
+		subjectText.GetComponent<Text> ().text = "Subject: " + msg.subject;
 		bodyText.GetComponent<Text> ().text = msg.body;
 	}
 }
