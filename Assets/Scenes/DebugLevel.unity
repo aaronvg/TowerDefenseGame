@@ -1572,6 +1572,7 @@ MonoBehaviour:
   - {fileID: 100000, guid: 24a04563346d96443b4267226082b20a, type: 2}
   - {fileID: 100000, guid: 96e7d22498b21454bb91ccd5a0518820, type: 2}
   currentWave: 0
+  state: 1
 --- !u!4 &1840543066
 Transform:
   m_ObjectHideFlags: 0

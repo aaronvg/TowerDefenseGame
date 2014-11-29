@@ -117,6 +117,10 @@ Material:
         first:
           name: _Projector_3
         second: {r: -.104516894, g: -.175117612, b: .978984177, a: 2.08773851}
+      data:
+        first:
+          name: _Tint
+        second: {r: 1, g: .448529422, b: .448529422, a: 0}
 --- !u!1002 &2100001
 EditorExtensionImpl:
   serializedVersion: 6
