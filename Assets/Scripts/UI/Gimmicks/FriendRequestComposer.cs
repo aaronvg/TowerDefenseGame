@@ -47,7 +47,13 @@ public class FriendRequestComposer : MonoBehaviour {
 
 		new FriendRequest("Donnie Yen",
 		                  "You and Donnie both like IM Wing Chun Club",
-		                  "Great sparring session the other day!")
+		                  "Great sparring session the other day!"),
+
+		new FriendRequest("Mom",
+		                  "You and Mom ",
+		                  "hello sweetie i made one of those myface accounts i kept hearing " +
+		                  "about on the news and thought it would be a good way to " +
+		                  "keep up with you since you never call.")
 	};
 
 	private static FriendRequest[] bad = {
