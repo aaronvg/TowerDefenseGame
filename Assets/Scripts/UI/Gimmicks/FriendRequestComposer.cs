@@ -4,9 +4,13 @@ using UnityEngine.UI; // Text
 
 public class FriendRequestComposer : MonoBehaviour {
 
-	public GameObject headerText;
-	public GameObject infoText;
-	public GameObject messageText;
+	public Text headerText;
+	public Text infoText;
+	public Text messageText;
+	public Image profilePic;
+
+	public Sprite[] goodPics;
+	public Sprite[] badPics;
 	
 	private struct FriendRequest {
 		public string name;
@@ -26,7 +30,7 @@ public class FriendRequestComposer : MonoBehaviour {
 		                  "Hey it's your old friend Johnny, just trying " +
 		                  "to get the band back together for that reunion " +
 		                  "show you wanted to do."),
-
+			
 		new FriendRequest("Walter Sparrow",
 		                  "You have 23 friends in common",
 		                  ""),
@@ -42,7 +46,7 @@ public class FriendRequestComposer : MonoBehaviour {
 		                  "the same network that would be greaaaat."),
 
 		new FriendRequest("Donnie Yen",
-		                  "You and Donnie both like IM Wu Shu Club",
+		                  "You and Donnie both like IM Wing Chun Club",
 		                  "Great sparring session the other day!")
 	};
 
@@ -50,8 +54,8 @@ public class FriendRequestComposer : MonoBehaviour {
 		new FriendRequest("xX_head-:-hunt_Xx",
 		                  "You have no friends in common",
 		                  "lol noob i told u u would regret camping my spawn, " +
-		                  "my friends in anonymuos helped me track down your " +
-		                  "profile and now im gonna doxx you all over the chans"),
+		                  "my friends in anonymuos helped me track down ur " +
+		                  "profile and now im gonna doxx u all over the chans"),
 		
 		new FriendRequest("spicykeychain",
 		                  "You have 1 friend in common",
@@ -66,7 +70,7 @@ public class FriendRequestComposer : MonoBehaviour {
 		                  "Well I'm here on behalf of Conway Multilevel Marketing " +
 		                  "to offer you the chance of a lifetime. " +
 		                  "All you need to do is invest a few hundred dollars in some " +
-		                  "Conway product, be the great entrepeneur I knew in high school, " +
+		                  "Conway product, be the great entrepreneur I knew in high school, " +
 		                  "and you'll be making thousands in no time. Be your own boss, " +
 		                  "set your own hours, and get rich doing it."),
 
@@ -78,20 +82,25 @@ public class FriendRequestComposer : MonoBehaviour {
 		                  "You and Dank both like The Internet",
 		                  "Check out Dank Memes for the latest internet memes and lol " +
 		                  "for hours! Be one step ahead of your friends! Identify reposts " +
-		                  "and stolen content instantly! Dank Memes - where the internet " +
+		                  "and copypasta instantly! Dank Memes - where the internet " +
 		                  "begins.")
 	};
 
 	void Start () {
 		FriendRequest fr;
-		
-		if(GetComponent<GimmickResponseHandler> ().isGood)
-			fr = good [Random.Range (0, good.Length)];
-		else
-			fr = bad [Random.Range (0, bad.Length)];
-		
-		headerText.GetComponent<Text> ().text = fr.name + " has sent you a friend request!";
-		infoText.GetComponent<Text> ().text = fr.info;
-		messageText.GetComponent<Text> ().text = fr.msg;
+
+		if (GetComponent<GimmickResponseHandler> ().isGood) {
+			int i = Random.Range (0, good.Length);
+			fr = good[i];
+			profilePic.sprite = goodPics[i];
+		} 
+		else {
+			int i = Random.Range (0, bad.Length);
+			fr = bad[i];
+			profilePic.sprite = badPics[i];
+		}
+		headerText.text = fr.name + " has sent you a friend request!";
+		infoText.text = fr.info;
+		messageText.text = fr.msg;
 	}
 }

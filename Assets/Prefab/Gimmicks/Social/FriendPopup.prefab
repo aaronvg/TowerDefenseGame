@@ -718,9 +718,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c8a13bde93f87429d266d4b1252cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headerText: {fileID: 100016}
-  infoText: {fileID: 100000}
-  messageText: {fileID: 100002}
+  headerText: {fileID: 11400020}
+  infoText: {fileID: 11400000}
+  messageText: {fileID: 11400002}
+  profilePic: {fileID: 11400024}
+  goodPics:
+  - {fileID: 21300000, guid: 9656934028932804ab3a4de696ad6ecf, type: 3}
+  - {fileID: 21300000, guid: f4d5b7de487ddeb4b8f8cb61f07490b5, type: 3}
+  - {fileID: 21300000, guid: b2db65d3734655341adca97a10de513f, type: 3}
+  - {fileID: 21300000, guid: 37df434accb7b79438277645b0a7f69d, type: 3}
+  - {fileID: 21300000, guid: 0fbd9d3af7f68314b9c58a3af005e78b, type: 3}
+  badPics:
+  - {fileID: 21300000, guid: 2c18ea2fc85c49047873c3102def582a, type: 3}
+  - {fileID: 21300000, guid: 5aa9942d4868aec45afeacf24905868a, type: 3}
+  - {fileID: 21300000, guid: 30139050a829bb7408076200809ac94e, type: 3}
+  - {fileID: 21300000, guid: 15afe32a7424fb94f94923536d38f032, type: 3}
+  - {fileID: 21300000, guid: 0dbe05b15989e0345bc17f7786dcf66c, type: 3}
 --- !u!222 &22200000
 CanvasRenderer:
   m_ObjectHideFlags: 1

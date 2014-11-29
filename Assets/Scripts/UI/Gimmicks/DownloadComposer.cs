@@ -36,7 +36,7 @@ public class DownloadComposer : MonoBehaviour {
 
 	private static Download[] bad = {
 		new Download("KasinoKing.exe",
-		             "freegame.freehost.net/free/games"),
+		             "freegame.freehost.net/clickbait"),
 
 		new Download("lolcats.png.exe",
 		             "megadownload.com/FdsE56F3gdRGH4EPL436m"),
