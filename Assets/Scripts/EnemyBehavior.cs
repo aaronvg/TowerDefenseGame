@@ -8,6 +8,7 @@ public class EnemyBehavior : MonoBehaviour
 
     public GameObject UIHealthbarPrefab;
     public GameObject deathAnimation;
+	public GameObject PointSphere;
     
     private GameObject _healthbar;
     private float _defaultHealthbarLength;
@@ -68,10 +69,20 @@ public class EnemyBehavior : MonoBehaviour
         }
         if (Health <= 0)
         {
-        	Instantiate (deathAnimation, transform.position, transform.rotation);
-            Destroy(gameObject);
-			GameManager.SendMessage ("UpdateCurrency", NumPoints);
-			GameManager.SendMessage ("KillEnemy");
+			Death();
         }
     }
+
+	void Death(){
+		Instantiate (deathAnimation, transform.position, transform.rotation);
+
+		GameObject point = (GameObject)Instantiate(PointSphere, transform.position, transform.rotation);
+		point.rigidbody.AddForce(new Vector3(Random.Range(-10f,10f), Random.Range(0f,10f), Random.Range(-10f,10f)),
+		                         ForceMode.Impulse);
+
+		Destroy(gameObject);
+
+		GameManager.SendMessage ("UpdateCurrency", NumPoints);
+		GameManager.SendMessage ("KillEnemy");
+	}
 }
