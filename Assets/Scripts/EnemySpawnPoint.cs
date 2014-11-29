@@ -28,13 +28,21 @@ public class EnemySpawnPoint : MonoBehaviour
 		virus = 2,
 	}
 
+	public enum GameState
+	{
+		waveInProgress,
+		intermission
+	}
+
+	public GameState state = GameState.intermission;
+
 	// TODO possibly create a GameState enum so we other components can see if we are in waveActive or intermission...
 
 
 	// Use this for initialization
 	void Start () {
 		Enemies = new ArrayList();
-		AddEnemy (EnemyTypes.spam, 3);
+
 	}
 	
 	// Update is called once per frame
@@ -43,12 +51,10 @@ public class EnemySpawnPoint : MonoBehaviour
 	    {
 	        Invoke("SpawnEnemy", SpawnRate);
 	    }
-
-
-		if (Enemies.Count == 0) {
+		
+		if (Enemies.Count == 0 && state == GameState.waveInProgress) {
 			EndWave ();
 		}
-
 	}
 
     void SpawnEnemy()
@@ -59,7 +65,12 @@ public class EnemySpawnPoint : MonoBehaviour
             Spawning = false;
         }
 
+
+
+		// Enemies array holds the type of enemy for the next enemy to spawn.
+		print ("spawning enemytype " + Enemies [SpawnCount] + " curr number " + SpawnCount);
 		var go = (GameObject)Instantiate (EnemyPrefabs [(int)Enemies [SpawnCount]], InitialSpawnPoint.position, Quaternion.identity);
+		//(EnemyPrefabs [(int)Enemies [SpawnCount]], InitialSpawnPoint.position, Quaternion.identity);
 		EnemyBehavior behavior = go.GetComponent<EnemyBehavior> ();
 		behavior.NumPoints = EnemyPoints[(int)Enemies[SpawnCount]];
 		behavior.GameManager = gameObject;
@@ -69,36 +80,44 @@ public class EnemySpawnPoint : MonoBehaviour
 
     void StartWave()
     {
-		print ("Started Wave " + currentWave);
-        Spawning = true;
-		SpawnCount = Enemies.Count;
+		if (state == GameState.intermission) {
+			switch (currentWave) 
+			{
+				// wave 0 is just a spam email
+			case 0:
+				AddEnemy (EnemyTypes.spam, 1);
+				break;
+
+			case 1:
+				AddEnemy (EnemyTypes.spam, 2);
+				AddEnemy (EnemyTypes.bot, 2);
+				break;
+				
+			case 2:
+				AddEnemy (EnemyTypes.bot, 2);
+				break;
+				
+			case 3:
+				AddEnemy (EnemyTypes.spam, 2);
+				break;
+			}
+
+			print ("Started Wave " + currentWave);
+			Spawning = true;
+			SpawnCount = Enemies.Count;
+			state = GameState.waveInProgress;
+		}
     }
 
 	void EndWave() 
 	{
 		print ("Ended Wave");
 		currentWave++;
+		state = GameState.intermission;
 		Enemies.Clear ();
-		switch (currentWave) 
-		{
-			// wave 0 is just a spam email
 
-			case 1:
-				AddEnemy (EnemyTypes.spam, 2);
-				AddEnemy (EnemyTypes.bot, 4);
-				break;
-				
-			case 2:
-				AddEnemy (EnemyTypes.bot, 2);
-				break;
-
-			case 3:
-				AddEnemy (EnemyTypes.spam, 2);
-				break;
-		}
-		
-		
 	}
+
 
 	void AddEnemy(EnemyTypes type, int amount) 
 	{
