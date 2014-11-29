@@ -75,7 +75,7 @@ public class TowerController : MonoBehaviour {
 	bool isInRange (GameObject target) {
 		if (target != null) {
 			float dist = Vector3.Distance (transform.position, target.transform.position);
-			SphereCollider range = GetComponent ("SphereCollider") as SphereCollider;
+			CapsuleCollider range = GetComponent ("CapsuleCollider") as CapsuleCollider;
 			
 			/* Why plus 2? Because dist is the distance between the centers of both objects.
 			   Since enemies enter the sphere collider edge first, we must find a way to
