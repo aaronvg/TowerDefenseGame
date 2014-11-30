@@ -18,12 +18,15 @@ public class EnemyBehavior : MonoBehaviour
 
     public Transform Destination;
     public GameObject gimmick;
-	public GameObject GameManager;
-	public int NumPoints = 10;
+	private GameObject GameManager;
+
+    public int NumPointDrops = 5;
+    public int PointsPerDrop = 2;
 
 	// Use this for initialization
 	void Start ()
 	{
+	    GameManager = GameObject.FindGameObjectWithTag("GameController");
         _maxHealth = Health;
 
         // handle healthbar UI
@@ -76,13 +79,19 @@ public class EnemyBehavior : MonoBehaviour
 	void Death(){
 		Instantiate (deathAnimation, transform.position, transform.rotation);
 
-		GameObject point = (GameObject)Instantiate(PointSphere, transform.position, transform.rotation);
-		point.rigidbody.AddForce(new Vector3(Random.Range(-10f,10f), Random.Range(0f,10f), Random.Range(-10f,10f)),
-		                         ForceMode.Impulse);
+	    for (int i = 0; i < NumPointDrops; i++)
+	    {
+            GameObject point = (GameObject)Instantiate(PointSphere, transform.position, transform.rotation);
+            point.transform.position += new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1));
+            point.rigidbody.AddForce(new Vector3(Random.Range(-10f, 10f), Random.Range(5f, 10f), Random.Range(-10f, 10f)),
+                                     ForceMode.Impulse);
+            point.GetComponent<PickupPoints>().NumPoints = PointsPerDrop;
+	    }
+
 
 		Destroy(gameObject);
 
-		GameManager.SendMessage ("UpdateCurrency", NumPoints);
+		//GameManager.SendMessage ("UpdateCurrency", NumPoints);
 		GameManager.SendMessage ("KillEnemy");
 	}
 }

@@ -8,7 +8,6 @@ public class EnemySpawnPoint : MonoBehaviour
     [Range(0,2)] public float SpawnRate;
     public bool Spawning;
 
-	public Transform InitialSpawnPoint;
     public Transform InitialDestination;
 
 	// All the possible enemy prefabs we can spawn. indices should match the EnemyTypes enumerator
@@ -69,11 +68,10 @@ public class EnemySpawnPoint : MonoBehaviour
 
 		// Enemies array holds the type of enemy for the next enemy to spawn.
 		print ("spawning enemytype " + Enemies [SpawnCount] + " curr number " + SpawnCount);
-		var go = (GameObject)Instantiate (EnemyPrefabs [(int)Enemies [SpawnCount]], InitialSpawnPoint.position, Quaternion.identity);
+		var go = (GameObject)Instantiate (EnemyPrefabs [(int)Enemies [SpawnCount]], transform.position, Quaternion.identity);
 		//(EnemyPrefabs [(int)Enemies [SpawnCount]], InitialSpawnPoint.position, Quaternion.identity);
 		EnemyBehavior behavior = go.GetComponent<EnemyBehavior> ();
-		behavior.NumPoints = EnemyPoints[(int)Enemies[SpawnCount]];
-		behavior.GameManager = gameObject;
+		//behavior.NumPoints = EnemyPoints[(int)Enemies[SpawnCount]];    using enemy behavior settings
 		behavior.SetDestination(InitialDestination);
 		// go.SendMessage("SetDestination", InitialDestination);
     }
@@ -116,6 +114,11 @@ public class EnemySpawnPoint : MonoBehaviour
 		state = GameState.intermission;
 		Enemies.Clear ();
 
+        // forward to UI (???)
+        foreach (var i in FindObjectsOfType<Canvas>())
+	    {
+	        i.SendMessage("EndWave");
+	    }
 	}
 
 

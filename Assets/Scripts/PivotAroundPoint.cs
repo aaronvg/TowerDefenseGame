@@ -34,7 +34,7 @@ public class PivotAroundPoint : MonoBehaviour
         // input
         if (Application.isPlaying)
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(1))
             {
                 var motion = Input.mousePosition - _lastMousePosition;
                 _targetYaw += motion.x / 2;
