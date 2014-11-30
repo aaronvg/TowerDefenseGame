@@ -18,6 +18,12 @@ public class UIMainController : MonoBehaviour
     public Text CurrencyValueText;
     public float CurrencyValueUpdateSpeed = 10f;
 
+    public Button StartWaveButton;
+    public Button CancelButton;
+    private bool _wasCanceled;
+
+    public Text WaveLabel;
+
     private float _lerpCurrency;
 
 
@@ -43,6 +49,12 @@ public class UIMainController : MonoBehaviour
         {
             CurrencyValueText.text = Mathf.RoundToInt(_lerpCurrency) + "";
         }
+
+        // Build mode cancel
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            CancelButton_OnPressed();
+        }
     }
 
     void StartConstruction()
@@ -51,13 +63,26 @@ public class UIMainController : MonoBehaviour
         _gameManager.SendMessage("StartConstruction");
         _gameManager.GetComponent<ConstructionState>().ConstructingWhat = TowerBuildingPrefab.transform;
         Sound_PlayConfirm();
+
+
+        // Make cancel button visible
+        CancelButton.gameObject.SetActive(true);
     }
 
     void StopConstruction()
     {
         // forward
         _gameManager.SendMessage("StopConstruction");
-        Sound_PlayCancel();
+        if (_wasCanceled)
+        {
+            Sound_PlayCancel();
+        }
+
+
+        // Make cancel button invisible
+        CancelButton.gameObject.SetActive(false);
+
+        _wasCanceled = false;
     }
 
     void StartWave()
@@ -73,6 +98,8 @@ public class UIMainController : MonoBehaviour
         }
 
         Sound_PlayConfirm();
+
+        StartWaveButton.interactable = false;
     }
 
     void EndWave()
@@ -85,6 +112,10 @@ public class UIMainController : MonoBehaviour
         {
             WaitingMusic.Play();
         }
+        StartWaveButton.interactable = true;
+
+        // Set wave label text
+        WaveLabel.text = "Wave " + (_gameManager.GetComponent<EnemySpawnPoint>().currentWave + 1);
     }
 
     void UpdateCurrency()
@@ -107,6 +138,17 @@ public class UIMainController : MonoBehaviour
         if (PickupSound)
         {
             PickupSound.Play();
+        }
+    }
+
+    void CancelButton_OnPressed()
+    {
+        // Build mode cancel
+        var cstate = _gameManager.GetComponent<ConstructionState>();
+        _wasCanceled = true;
+        if (cstate != null && cstate.IsConstructing)
+        {
+            StopConstruction();
         }
     }
 }

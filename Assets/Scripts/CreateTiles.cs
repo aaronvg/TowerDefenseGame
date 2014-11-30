@@ -96,7 +96,7 @@ public class CreateTiles : MonoBehaviour {
 		            var constructState = manager.GetComponent<ConstructionState>();
 		            if (constructState != null && constructState.IsConstructing)
 		            {
-                        constructState.SendMessage("StopConstruction");
+		                GameObject.FindGameObjectWithTag("UIRoot").SendMessage("StopConstruction");
 		                if (constructState.ConstructingWhat != null)
 		                {
 		                    var inst = (Transform) Instantiate(constructState.ConstructingWhat);
