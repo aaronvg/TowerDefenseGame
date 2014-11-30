@@ -65,7 +65,9 @@ public class MoveAtMouseBounds : MonoBehaviour
         var zDisplacement = panDirection.z * forward;
         var xDisplacement = panDirection.x * right;
 
-        _target += (zDisplacement + xDisplacement)*Time.deltaTime*Speed;
+        var distFromCamera = (Camera.main.transform.position - transform.position).magnitude/20;
+
+        _target += (zDisplacement + xDisplacement)*Time.deltaTime*Speed * distFromCamera;
 
         // Lerp to target
         transform.position = Vector3.Lerp(transform.position, _target, 20f*Time.deltaTime);
