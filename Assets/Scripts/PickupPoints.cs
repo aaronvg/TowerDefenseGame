@@ -4,36 +4,46 @@ using System.Collections;
 public class PickupPoints : MonoBehaviour {
 
 	public int NumPoints = 5;
-	public float timeLeft = 15f;
+	public float timeLeft = 5f;
 
-	public GameObject GameManager;
+	private GameObject _gameManager;
 
-	// Use this for initialization
-	void Start () {
+	void Start()
+    {
+	    _gameManager = GameObject.FindGameObjectWithTag("GameController");
+
+	    timeLeft *= Random.Range(.9f, 1f);
+    }
 	
-	}
-	
-	// Update is called once per frame
-	void Update () {
+	void Update()
+    {
 		timeLeft -= Time.deltaTime;
-		if ( timeLeft < 0 ){
-			Destroy(this.gameObject);
+        if (timeLeft < 0)
+        {
+            _gameManager.SendMessage("UpdateCurrency", NumPoints);
+			Destroy(gameObject);
 		}
-	}
 
-	void OnMouseOver(){
-		Debug.Log("hello");
-		GameManager.SendMessage ("UpdateCurrency", NumPoints);
-		Destroy(this.gameObject);
-	}
 
-	void OnTriggerEnter(Collider other){
-		if(!other.isTrigger){
+        // check for mouseover
+        // OnMouseOver is meant for GUI
+	    RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+	    if (collider != null && collider.Raycast(ray, out hit, 100f))
+	    {
+	        _gameManager.SendMessage("UpdateCurrency", NumPoints);
+            Destroy(gameObject);
+	    }
+    }
+
+	void OnTriggerEnter(Collider other)
+    {
+		/*if(!other.isTrigger){
 			//Debug.Log("Collided with " + other.gameObject.name);
 			rigidbody.velocity=Vector3.zero;
 			rigidbody.angularVelocity = Vector3.zero;
 			this.rigidbody.isKinematic = true;
 			this.collider.isTrigger = false;
-		}
+		}*/
 	}
 }

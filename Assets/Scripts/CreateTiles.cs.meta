@@ -2,7 +2,10 @@ fileFormatVersion: 2
 guid: 8cb9bafea5cd36d4abe68abba675cabf
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - TilePlacerPrefab: {fileID: 100006, guid: e5b146b089a3aea4da8aeb7955e85c45, type: 2}
+  - SelectPlacerUISound: {fileID: 8300000, guid: 38ee79ba883ca7f44a9ab3e63f088e9b,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
