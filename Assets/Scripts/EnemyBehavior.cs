@@ -30,7 +30,7 @@ public class EnemyBehavior : MonoBehaviour
         _maxHealth = Health;
 
         // handle healthbar UI
-        var canvas = FindObjectOfType<Canvas>();
+        var canvas = GameObject.FindGameObjectWithTag("UIRoot").GetComponent<Canvas>();
         if (canvas)
         {
             _canvas = canvas;

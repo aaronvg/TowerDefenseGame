@@ -115,10 +115,7 @@ public class EnemySpawnPoint : MonoBehaviour
 		Enemies.Clear ();
 
         // forward to UI (???)
-        foreach (var i in FindObjectsOfType<Canvas>())
-	    {
-	        i.SendMessage("EndWave");
-	    }
+        GameObject.FindGameObjectWithTag("UIRoot").SendMessage("EndWave");
 	}
 
 
