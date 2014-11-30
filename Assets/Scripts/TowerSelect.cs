@@ -20,12 +20,30 @@ public class TowerSelect : MonoBehaviour {
 	
 	/* Used by world to select this tower */
 	void Select() {
-		GetComponentInChildren<Projector>().enabled = true;
+		Projector p = GetComponentInChildren<Projector>();
+		p.enabled = true;
 		GetComponentInChildren<Canvas>().enabled = true;
+		StartCoroutine(GrowRange(p));
 	}
 	
 	void Deselect() {
-		GetComponentInChildren<Projector>().enabled = false;
+		Projector p = GetComponentInChildren<Projector>();
 		GetComponentInChildren<Canvas>().enabled = false;
+		StartCoroutine(ShrinkRange(p));
+	}
+	
+	IEnumerator GrowRange(Projector p) {
+		while(p.orthographicSize < 8) {
+			p.orthographicSize += 128 * Time.deltaTime;
+			yield return null;
+		}
+	}	
+	
+	IEnumerator ShrinkRange(Projector p) {
+		while(p.orthographicSize > 0) {
+			p.orthographicSize -= 128 * Time.deltaTime;
+			yield return null;
+		}
+		p.enabled = false;
 	}
 }
