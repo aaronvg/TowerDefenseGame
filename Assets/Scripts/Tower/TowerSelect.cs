@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class TowerSelect : MonoBehaviour {
 
@@ -22,12 +23,15 @@ public class TowerSelect : MonoBehaviour {
 	void Select() {
 		Projector p = GetComponentInChildren<Projector>();
 		p.enabled = true;
-		GetComponentInChildren<Canvas>().enabled = true;
+		
+		Canvas c = GetComponentInChildren<Canvas>();
+		c.enabled = true;
+		
 		StartCoroutine(GrowRange(p));
 	}
 	
 	void Deselect() {
-		Projector p = GetComponentInChildren<Projector>();
+		Projector p = GetComponentInChildren<Projector>();		
 		GetComponentInChildren<Canvas>().enabled = false;
 		StartCoroutine(ShrinkRange(p));
 	}
@@ -35,6 +39,8 @@ public class TowerSelect : MonoBehaviour {
 	IEnumerator GrowRange(Projector p) {
 		while(p.orthographicSize < 8) {
 			p.orthographicSize += 128 * Time.deltaTime;
+			if(p.orthographicSize > 8)
+				p.orthographicSize = 8;
 			yield return null;
 		}
 	}	
