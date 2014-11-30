@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -11,6 +12,9 @@ public class HealthbarUIHandler : MonoBehaviour
 
     private float _maxHealth;
 
+    private float _currentHealth;
+    private float _targetHealth;
+
     public Transform TrackingObject;
 
     void Start()
@@ -22,6 +26,14 @@ public class HealthbarUIHandler : MonoBehaviour
 
     void Update()
     {
+        _currentHealth = Mathf.Lerp(_currentHealth, _targetHealth, 10f * Time.deltaTime);
+        _rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, _defaultWidth * (_currentHealth / _maxHealth));
+        var image = GetComponent<Image>();
+        if (image != null)
+        {
+            image.color = Color.Lerp(Color.red, Color.green, (_currentHealth / _maxHealth)) * 2;
+        }
+
         if (TrackingObject)
         {
             var scrpos = Camera.main.WorldToScreenPoint(TrackingObject.position + new Vector3(0, 1.5f, 0));
@@ -44,11 +56,13 @@ public class HealthbarUIHandler : MonoBehaviour
         {
             health = _maxHealth;
         }
-        _rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, _defaultWidth * (health / _maxHealth));
+        _targetHealth = health;
     }
 
     void SetMaxHealth(float max)
     {
         _maxHealth = max;
+        _currentHealth = max;
+        _targetHealth = max;
     }
 }
