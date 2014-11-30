@@ -6,6 +6,8 @@ public class ConstructionState : MonoBehaviour
     public bool IsConstructing = false;
     public Transform ConstructingWhat;
 
+    private float _oldPitch;
+
     void StartConstruction()
     {
         if (IsConstructing)
@@ -21,6 +23,14 @@ public class ConstructionState : MonoBehaviour
         }
 
         IsConstructing = true;
+
+        // Set the pivot camera pitch angle
+        var pivot = Camera.main.GetComponent<PivotAroundPoint>();
+        if (pivot != null)
+        {
+            _oldPitch = pivot.TargetPitch;
+            pivot.TargetPitch = 80f;
+        }
     }
 
     void StopConstruction()
@@ -38,5 +48,12 @@ public class ConstructionState : MonoBehaviour
         }
 
         IsConstructing = false;
+
+        // Set the pivot camera pitch angle
+        var pivot = Camera.main.GetComponent<PivotAroundPoint>();
+        if (pivot != null)
+        {
+            pivot.TargetPitch = _oldPitch;
+        }
     }
 }

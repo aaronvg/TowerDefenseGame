@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 
 /**
@@ -15,8 +16,12 @@ public class PivotAroundPoint : MonoBehaviour
 
     [Range(0, 90)] public float PitchAngleFromPoint = 45;
 
-    private float _targetDistance;
-    private float _targetYaw;
+    [NonSerialized]
+    public float TargetDistance;
+    [NonSerialized]
+    public float TargetYaw;
+    [NonSerialized]
+    public float TargetPitch;
 
     private Vector3 _lastMousePosition;
 
@@ -24,8 +29,9 @@ public class PivotAroundPoint : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            _targetYaw = YawAngleFromPoint;
-            _targetDistance = DistanceFromPoint;
+            TargetYaw = YawAngleFromPoint;
+            TargetDistance = DistanceFromPoint;
+            TargetPitch = PitchAngleFromPoint;
         }
     }
 
@@ -37,22 +43,23 @@ public class PivotAroundPoint : MonoBehaviour
             if (Input.GetMouseButton(1))
             {
                 var motion = Input.mousePosition - _lastMousePosition;
-                _targetYaw += motion.x / 2;
+                TargetYaw += motion.x / 2;
             }
 
             if (Input.mouseScrollDelta.y != 0)
             {
-                _targetDistance -= Input.mouseScrollDelta.y * 5;
+                TargetDistance -= Input.mouseScrollDelta.y * 5;
             }
             
             // clamp target values
-            _targetDistance = Mathf.Clamp(_targetDistance, 10, 50);
+            TargetDistance = Mathf.Clamp(TargetDistance, 10, 50);
 
             // lerping angles
             // We lerp these relative to a 144f framerate because that's the framerate I had when I was setting this up.
             // It's entirely arbitrary and we can adjust it for 60 in the future if it's REEEALLY necessary.
-            YawAngleFromPoint = Mathf.LerpAngle(YawAngleFromPoint, _targetYaw, (.1f / (1f/144f)) * Time.deltaTime);
-            DistanceFromPoint = Mathf.Lerp(DistanceFromPoint, _targetDistance, (.025f / (1f/144f)) * Time.deltaTime);
+            YawAngleFromPoint = Mathf.LerpAngle(YawAngleFromPoint, TargetYaw, (.1f / (1f/144f)) * Time.deltaTime);
+            PitchAngleFromPoint = Mathf.LerpAngle(PitchAngleFromPoint, TargetPitch, (.1f/(1f/144f)) * Time.deltaTime);
+            DistanceFromPoint = Mathf.Lerp(DistanceFromPoint, TargetDistance, (.025f / (1f/144f)) * Time.deltaTime);
 
             // reset mouse position
             _lastMousePosition = Input.mousePosition;

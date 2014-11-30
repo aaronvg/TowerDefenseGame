@@ -6,7 +6,7 @@ public class CreateTiles : MonoBehaviour {
     public int GridHeight = 2;
 
     public GameObject TilePlacerPrefab;
-    public AudioClip SelectPlacerUISound;
+    public AudioSource SelectPlacerUISound;
 
     private Transform _highlightedTile;
 
@@ -111,7 +111,7 @@ public class CreateTiles : MonoBehaviour {
 
 		                if (SelectPlacerUISound != null)
 		                {
-		                    AudioSource.PlayClipAtPoint(SelectPlacerUISound, Camera.main.transform.position);
+		                    SelectPlacerUISound.Play();
 		                }
 		            }
 		            break;
