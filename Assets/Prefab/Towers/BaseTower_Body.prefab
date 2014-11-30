@@ -218,6 +218,7 @@ GameObject:
   - 224: {fileID: 22400012}
   - 222: {fileID: 22200012}
   - 114: {fileID: 11400024}
+  - 114: {fileID: 11400030}
   m_Layer: 5
   m_Name: Window
   m_TagString: Untagged
@@ -820,6 +821,17 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &11400030
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3fca4c4c9f122e4f94102dcd6e215fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!119 &11900000
 Projector:
   m_ObjectHideFlags: 1
@@ -833,7 +845,7 @@ Projector:
   m_FieldOfView: 60
   m_AspectRatio: 1
   m_Orthographic: 1
-  m_OrthographicSize: 8
+  m_OrthographicSize: 9.99999994e-09
   m_Material: {fileID: 2100000, guid: 78c0a732ad112a541100162a44295342, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
@@ -1041,7 +1053,7 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100026}
-  m_LocalRotation: {x: 0, y: 0, z: .206716508, w: .978400886}
+  m_LocalRotation: {x: 0, y: 0, z: .2079117, w: .978147626}
   m_LocalPosition: {x: 0, y: 0, z: -23.7999992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
