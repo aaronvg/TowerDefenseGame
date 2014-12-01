@@ -91,9 +91,9 @@ MonoBehaviour:
   PointSphere: {fileID: 100000, guid: 16c2b8a168fec5b4ab69917d2fe72ebb, type: 2}
   Health: 4
   Destination: {fileID: 0}
-  gimmick: {fileID: 100028, guid: c12b1cfff9692d344b5e023c79e5c893, type: 2}
-  GameManager: {fileID: 0}
-  NumPoints: 10
+  gimmick: {fileID: 100028, guid: 2075e447943875143b071c6ff5b4fb82, type: 2}
+  NumPointDrops: 5
+  PointsPerDrop: 2
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

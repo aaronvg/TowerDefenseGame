@@ -7,6 +7,9 @@ public class ScoreAndCurrencyManager : MonoBehaviour
 {
 	private int internetPresenceRate;
 	private int currentInternetPresence;
+
+	// The max points we can get for internet.
+	private int maxInternetPresencePossible = 100;
     public int CurrencyTotal;
 	public int CurrentCurrency;
 
@@ -24,6 +27,8 @@ public class ScoreAndCurrencyManager : MonoBehaviour
 
 
 	void Update() {
+
+
 		// Update Currency UI
 
 
@@ -43,15 +48,28 @@ public class ScoreAndCurrencyManager : MonoBehaviour
 		while(true) 
 		{ 
 			currentInternetPresence += internetPresenceRate;
+
+			if(currentInternetPresence > maxInternetPresencePossible) {
+				currentInternetPresence = maxInternetPresencePossible;
+			}
 			yield return new WaitForSeconds(1f);
 		}
 	}
 	
 	
-	// Other events in the game will update our current internet presence or currency
-	void UpdateInternetPresence(int additionalRate) {
+	// Updates the RATE of increase of our internet points.
+	void UpdateInternetPresenceRate(int additionalRate) {
 		internetPresenceRate += additionalRate;
-		Debug.Log ("Score updated to " + currentInternetPresence);
+		Debug.Log ("Internet rate updated to " + internetPresenceRate);
+	}
+
+	// Updates the actual total we have right now for internet points.
+	void UpdateInternetPresencePoints(int points) {
+		currentInternetPresence += points;
+		if(currentInternetPresence > maxInternetPresencePossible) {
+			currentInternetPresence = maxInternetPresencePossible;
+		}
+		Debug.Log ("Current internet presence poitns updated to " + currentInternetPresence);
 	}
 
 

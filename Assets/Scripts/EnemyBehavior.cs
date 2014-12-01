@@ -23,6 +23,7 @@ public class EnemyBehavior : MonoBehaviour
     public int NumPointDrops = 5;
     public int PointsPerDrop = 2;
 
+	private bool ReachedEnd = false;
 	// Use this for initialization
 	void Start ()
 	{
@@ -52,7 +53,14 @@ public class EnemyBehavior : MonoBehaviour
 	        if (pm)
 	        {
                 SetDestination(pm.NextDestination);
-	        }
+	        } else if(ReachedEnd == false){
+				ReachedEnd = true;
+				if(gimmick != null) {
+					//gimmick.GetComponent<GimmickResponseHandler>().SetEnemy (gameObject);
+					GameObject gim = Instantiate (gimmick, transform.position, Quaternion.identity) as GameObject;
+					gim.GetComponent<GimmickResponseHandler>().SetEnemy(gameObject);
+				}
+			}
 	    }
 	}
 
