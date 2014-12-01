@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class TowerSelect : MonoBehaviour {
 
+	public GameObject upgrade;
+
 	void Update() {
 		if ( Input.GetMouseButtonDown(0)) {
 			RaycastHit hit;
@@ -12,9 +14,8 @@ public class TowerSelect : MonoBehaviour {
 			if (Physics.Raycast (ray, out hit, 100.0f)){
 				if (hit.transform.gameObject == this.gameObject)
 					Select ();
-				else {
+				else if (hit.transform.tag != "Tower Menu")
 					Deselect ();
-				}
 			}
 		}
 	}
@@ -51,5 +52,14 @@ public class TowerSelect : MonoBehaviour {
 			yield return null;
 		}
 		p.enabled = false;
+	}
+	
+	void Sell() {
+		Destroy(gameObject);
+	}
+	
+	void Upgrade() {
+		Instantiate (upgrade, transform.position, transform.rotation);
+		Destroy(gameObject);
 	}
 }
