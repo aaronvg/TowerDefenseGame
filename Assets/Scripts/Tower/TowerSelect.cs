@@ -7,6 +7,7 @@ public class TowerSelect : MonoBehaviour {
 	public GameObject upgrade;
 	public AudioSource deleteSound;
 
+	/* Check if this tower is being clicked on */
 	void Update() {
 		if ( Input.GetMouseButtonDown(0)) {
 			RaycastHit hit;
@@ -32,12 +33,14 @@ public class TowerSelect : MonoBehaviour {
 		StartCoroutine(GrowRange(p));
 	}
 	
+	/* Used by world to deselect this tower */
 	void Deselect() {
 		Projector p = GetComponentInChildren<Projector>();		
 		GetComponentInChildren<Canvas>().enabled = false;
 		StartCoroutine(ShrinkRange(p));
 	}
 	
+	/* Animates selection */
 	IEnumerator GrowRange(Projector p) {
 		while(p.orthographicSize < 8) {
 			p.orthographicSize += 128 * Time.deltaTime;
@@ -47,6 +50,7 @@ public class TowerSelect : MonoBehaviour {
 		}
 	}	
 	
+	/* Animates deselection */
 	IEnumerator ShrinkRange(Projector p) {
 		while(p.orthographicSize > 0) {
 			p.orthographicSize -= 128 * Time.deltaTime;
@@ -61,6 +65,7 @@ public class TowerSelect : MonoBehaviour {
 		StartCoroutine (AnimateUninstall());
 	}
 	
+	/* Animates the uninstall process */
 	IEnumerator AnimateUninstall () {
 		deleteSound.Play();
 		while (transform.localScale.x > 0) {
