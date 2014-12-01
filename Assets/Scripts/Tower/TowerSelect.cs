@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class TowerSelect : MonoBehaviour {
 
 	public GameObject upgrade;
+	public AudioSource deleteSound;
 
 	void Update() {
 		if ( Input.GetMouseButtonDown(0)) {
@@ -54,12 +55,32 @@ public class TowerSelect : MonoBehaviour {
 		p.enabled = false;
 	}
 	
+	/* Called when this tower is uninstalled */
 	void Sell() {
-		Destroy(gameObject);
+		Deselect ();
+		StartCoroutine (AnimateUninstall());
 	}
 	
+	IEnumerator AnimateUninstall () {
+		deleteSound.Play();
+		while (transform.localScale.x > 0) {
+			transform.localScale = new Vector3(transform.localScale.x - 2 * Time.deltaTime, 1, 1);
+			yield return null;
+		}
+		while (transform.localScale.z > 0) {
+			transform.localScale = new Vector3(0, 1, transform.localScale.z - 8 * Time.deltaTime);
+			yield return null;
+		}
+		transform.localScale = new Vector3(0, 1, 0);
+		while (deleteSound.isPlaying)
+			yield return null;
+		
+		Destroy (gameObject);
+	}
+	
+	/* Called when this tower is upgraded */
 	void Upgrade() {
 		Instantiate (upgrade, transform.position, transform.rotation);
-		Destroy(gameObject);
+		Destroy (gameObject);
 	}
 }
