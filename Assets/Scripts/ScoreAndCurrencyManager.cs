@@ -33,11 +33,6 @@ public class ScoreAndCurrencyManager : MonoBehaviour
 
 	    // Update Score / Internet Presence UI
 
-
-
-	    // Calculate what we can buy and is unlocked.
-	    // Send message to another component, such as BuildingManager
-
 	}
 
 	// Currently updates internet presence bar every second.

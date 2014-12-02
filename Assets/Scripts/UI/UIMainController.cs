@@ -100,7 +100,7 @@ public class UIMainController : MonoBehaviour
 	void StartConstruction(Transform towerToConstruct, int spentCurrency)
 	{
 		_spentCurrency = spentCurrency;
-		print ("spent currency " + _spentCurrency);
+
 		// forward to construction manager
 		_gameManager.SendMessage("StartConstruction");
 		_gameManager.GetComponent<ConstructionState>().ConstructingWhat = towerToConstruct;
