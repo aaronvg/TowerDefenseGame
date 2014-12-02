@@ -21,7 +21,6 @@ public class ScoreAndCurrencyManager : MonoBehaviour
 
 
 		CurrencyTotal = 0;
-		CurrentCurrency = 10;
 		StartCoroutine ("UpdateInternetPresence");
 	}
 

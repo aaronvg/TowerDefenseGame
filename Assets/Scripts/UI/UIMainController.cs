@@ -7,6 +7,7 @@ public class UIMainController : MonoBehaviour
     private GameObject _gameManager;
 
     public GameObject TowerBuildingPrefab;
+	public GameObject[] TowerBuildingPrefabs;
 
     public AudioSource ConfirmSound;
     public AudioSource CancelSound;
@@ -21,6 +22,16 @@ public class UIMainController : MonoBehaviour
     public Button StartWaveButton;
     public Button CancelButton;
     private bool _wasCanceled;
+	private int _spentCurrency;
+
+	public Button ConstructTowerFilterButton;
+	private int FilterTowerValue = 50;
+
+	public Button ConstructTowerBlockButton;
+	private int BlockTowerValue = 100;
+
+	public Button ConstructTowerScannerButton;
+	private int ScannerTowerValue = 200;
 
     public Text WaveLabel;
 
@@ -35,6 +46,15 @@ public class UIMainController : MonoBehaviour
             Debug.LogError(
                 "Game manager could not be set; is there a game object with the tag GameController in the scene?", this);
         }
+
+		ConstructTowerFilterButton.onClick.AddListener(() => { StartConstruction(TowerBuildingPrefabs[0].transform); 
+			_spentCurrency = FilterTowerValue; });
+		ConstructTowerBlockButton.onClick.AddListener(() => { StartConstruction(TowerBuildingPrefabs[1].transform);
+			_spentCurrency = BlockTowerValue; });
+		ConstructTowerScannerButton.onClick.AddListener(() => { StartConstruction(TowerBuildingPrefabs[2].transform);
+			_spentCurrency = ScannerTowerValue; });
+
+
     }
 
     void Update()
@@ -55,26 +75,52 @@ public class UIMainController : MonoBehaviour
         {
             CancelButton_OnPressed();
         }
+
+
+		// Update tower buttons based on currency
+		if (curmanager.CurrentCurrency < FilterTowerValue) {
+			ConstructTowerFilterButton.interactable = false;
+		} else {
+			ConstructTowerFilterButton.interactable = true;
+		}
+
+		if (curmanager.CurrentCurrency < BlockTowerValue) {
+			ConstructTowerBlockButton.interactable = false;
+		} else {
+			ConstructTowerFilterButton.interactable = true;
+		}
+
+		if (curmanager.CurrentCurrency < ScannerTowerValue) {
+			ConstructTowerScannerButton.interactable = false;
+		} else {
+			ConstructTowerScannerButton.interactable = true;
+		}
+
+
+
     }
 
-    void StartConstruction()
-    {
-        // forward to construction manager
-        _gameManager.SendMessage("StartConstruction");
-        _gameManager.GetComponent<ConstructionState>().ConstructingWhat = TowerBuildingPrefab.transform;
-        Sound_PlayConfirm();
+	void StartConstruction(Transform towerToConstruct)
+	{
+		// forward to construction manager
+		_gameManager.SendMessage("StartConstruction");
+		_gameManager.GetComponent<ConstructionState>().ConstructingWhat = towerToConstruct;
+		Sound_PlayConfirm();
 
-
-        // Make cancel button visible
-        CancelButton.gameObject.SetActive(true);
-    }
-
+		_gameManager.SendMessage ("UpdateCurrency", -_spentCurrency);
+		
+		// Make cancel button visible
+		CancelButton.gameObject.SetActive(true);
+	}
+	
     void StopConstruction()
     {
         // forward
         _gameManager.SendMessage("StopConstruction");
         if (_wasCanceled)
         {
+			// give back any money they were spending
+			_gameManager.SendMessage ("UpdateCurrency", _spentCurrency);
             Sound_PlayCancel();
         }
 
