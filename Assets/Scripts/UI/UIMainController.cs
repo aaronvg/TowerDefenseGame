@@ -6,9 +6,6 @@ public class UIMainController : MonoBehaviour
 {
     private GameObject _gameManager;
 
-    public GameObject TowerBuildingPrefab;
-	public GameObject[] TowerBuildingPrefabs;
-
     public AudioSource ConfirmSound;
     public AudioSource CancelSound;
     public AudioSource PickupSound;
@@ -24,14 +21,14 @@ public class UIMainController : MonoBehaviour
     private bool _wasCanceled;
 	private int _spentCurrency;
 
-	public Button ConstructTowerFilterButton;
-	private int FilterTowerValue = 50;
+	public Button[] towerButtons;
+	public int[] towerCosts;
+	public GameObject[] TowerBuildingPrefabs;
 
-	public Button ConstructTowerBlockButton;
-	private int BlockTowerValue = 100;
+	public Button[] buildingButtons;
+	public int[] buildingCosts;
+	public GameObject[] BuildingPrefabs;
 
-	public Button ConstructTowerScannerButton;
-	private int ScannerTowerValue = 200;
 
     public Text WaveLabel;
 
@@ -47,12 +44,15 @@ public class UIMainController : MonoBehaviour
                 "Game manager could not be set; is there a game object with the tag GameController in the scene?", this);
         }
 
-		ConstructTowerFilterButton.onClick.AddListener(() => { StartConstruction(TowerBuildingPrefabs[0].transform); 
-			_spentCurrency = FilterTowerValue; });
-		ConstructTowerBlockButton.onClick.AddListener(() => { StartConstruction(TowerBuildingPrefabs[1].transform);
-			_spentCurrency = BlockTowerValue; });
-		ConstructTowerScannerButton.onClick.AddListener(() => { StartConstruction(TowerBuildingPrefabs[2].transform);
-			_spentCurrency = ScannerTowerValue; });
+		for (int i = 0; i < towerButtons.Length; i++) {
+			int j = i; // because otherwise C# always uses the last value in the loop when these get called.
+			towerButtons[j].onClick.AddListener(() => { StartConstruction(TowerBuildingPrefabs[j].transform, towerCosts[j]); });
+		}
+
+		for (int i = 0; i < buildingButtons.Length; i++) {
+			int j = i; // because otherwise C# always uses the last value in the loop when these get called.
+			buildingButtons[j].onClick.AddListener(() => { StartConstruction(BuildingPrefabs[j].transform, buildingCosts[j]); });
+		}
 
 
     }
@@ -78,30 +78,29 @@ public class UIMainController : MonoBehaviour
 
 
 		// Update tower buttons based on currency
-		if (curmanager.CurrentCurrency < FilterTowerValue) {
-			ConstructTowerFilterButton.interactable = false;
-		} else {
-			ConstructTowerFilterButton.interactable = true;
+		for (int i = 0; i < towerButtons.Length; i++) {
+			if(curmanager.CurrentCurrency < towerCosts[i]) {
+				towerButtons[i].interactable = false;
+			} else {
+				towerButtons[i].interactable = true;
+			}
 		}
 
-		if (curmanager.CurrentCurrency < BlockTowerValue) {
-			ConstructTowerBlockButton.interactable = false;
-		} else {
-			ConstructTowerFilterButton.interactable = true;
+		// Update building buttons.
+		for (int i = 0; i < buildingButtons.Length; i++) {
+			if(curmanager.CurrentCurrency < buildingCosts[i]) {
+				buildingButtons[i].interactable = false;
+			} else {
+				buildingButtons[i].interactable = true;
+			}
 		}
-
-		if (curmanager.CurrentCurrency < ScannerTowerValue) {
-			ConstructTowerScannerButton.interactable = false;
-		} else {
-			ConstructTowerScannerButton.interactable = true;
-		}
-
-
 
     }
 
-	void StartConstruction(Transform towerToConstruct)
+	void StartConstruction(Transform towerToConstruct, int spentCurrency)
 	{
+		_spentCurrency = spentCurrency;
+		print ("spent currency " + _spentCurrency);
 		// forward to construction manager
 		_gameManager.SendMessage("StartConstruction");
 		_gameManager.GetComponent<ConstructionState>().ConstructingWhat = towerToConstruct;
@@ -119,8 +118,7 @@ public class UIMainController : MonoBehaviour
         _gameManager.SendMessage("StopConstruction");
         if (_wasCanceled)
         {
-			// give back any money they were spending
-			_gameManager.SendMessage ("UpdateCurrency", _spentCurrency);
+
             Sound_PlayCancel();
         }
 
@@ -189,6 +187,8 @@ public class UIMainController : MonoBehaviour
 
     void CancelButton_OnPressed()
     {
+		// give back any money they were spending
+		_gameManager.SendMessage ("UpdateCurrency", _spentCurrency);
         // Build mode cancel
         var cstate = _gameManager.GetComponent<ConstructionState>();
         _wasCanceled = true;
