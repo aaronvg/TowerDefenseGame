@@ -668,10 +668,10 @@ RectTransform:
   - {fileID: 649936700}
   m_Father: {fileID: 686107980}
   m_RootOrder: 4
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 40.5999985, y: 166.660004}
-  m_SizeDelta: {x: -97.1999969, y: -422.299988}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 120.599998, y: -85.8399963}
+  m_SizeDelta: {x: 62.8000031, y: 82.7000122}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &240384809
 MonoBehaviour:
@@ -1578,9 +1578,9 @@ RectTransform:
   - {fileID: 1919446545}
   m_Father: {fileID: 686107980}
   m_RootOrder: 5
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -36.5500031, y: 64.1999969}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 43.4499969, y: -187.800003}
   m_SizeDelta: {x: 67.5, y: 92}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &774470109
@@ -2270,6 +2270,54 @@ Prefab:
       propertyPath: EngagedMusic
       value: 
       objectReference: {fileID: 120794095}
+    - target: {fileID: 22400004, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400004, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400004, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 120.599998
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400004, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -85.8399963
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400004, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 62.8000031
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400004, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 82.7000122
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400002, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400002, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400002, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400002, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400002, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 43.4499969
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400002, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -187.800003
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
   m_RootGameObject: {fileID: 871380222}
