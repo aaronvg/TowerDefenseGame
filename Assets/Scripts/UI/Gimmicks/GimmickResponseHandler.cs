@@ -24,7 +24,7 @@ public class GimmickResponseHandler : MonoBehaviour {
 
 		}
 		Destroy (gameObject);
-		Destroy (AttachedEnemy);
+		AttachedEnemy.GetComponent<EnemyBehavior> ().Death ();
 	}
 
 	void Yes() {
@@ -39,7 +39,7 @@ public class GimmickResponseHandler : MonoBehaviour {
 			GameManager.SendMessage("UpdateInternetPresencePoints", -10);
 		}
 		Destroy (gameObject);
-		Destroy (AttachedEnemy);
+		AttachedEnemy.GetComponent<EnemyBehavior> ().Death ();
 	}
 	
 	void No() {
@@ -54,7 +54,7 @@ public class GimmickResponseHandler : MonoBehaviour {
 			GameManager.SendMessage("UpdateInternetPresencePoints", 10);
 		}
 		Destroy (gameObject);
-		Destroy (AttachedEnemy);
+		AttachedEnemy.GetComponent<EnemyBehavior> ().Death ();
 	}
 
 	public void SetEnemy(GameObject enemy) {

@@ -95,7 +95,7 @@ public class EnemyBehavior : MonoBehaviour
 	}
 
 
-	void Death(){
+	public void Death(){
 		Instantiate (deathAnimation, transform.position, transform.rotation);
 
 	    for (int i = 0; i < NumPointDrops; i++)
