@@ -111,9 +111,9 @@ AudioSource:
   m_GameObject: {fileID: 104497255}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: f3eb249e04dbbba43a630fb686ae5fb0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a364103d7e80e9146a75ad3e7995578d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .213
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -640,7 +640,7 @@ AudioSource:
   m_GameObject: {fileID: 494861099}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 38ee79ba883ca7f44a9ab3e63f088e9b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 106cb01913b2a3e49b374f4e888f70d3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1483,6 +1483,22 @@ Prefab:
       propertyPath: EngagedMusic
       value: 
       objectReference: {fileID: 120794095}
+    - target: {fileID: 8200002, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 106cb01913b2a3e49b374f4e888f70d3, type: 3}
+    - target: {fileID: 8200004, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a3a4850634249084cb33aca16811f8ae, type: 3}
+    - target: {fileID: 8200000, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a364103d7e80e9146a75ad3e7995578d, type: 3}
+    - target: {fileID: 8200000, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_Volume
+      value: .213
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
   m_RootGameObject: {fileID: 871380222}
@@ -2093,7 +2109,7 @@ AudioSource:
   m_GameObject: {fileID: 1847254041}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 44090ebf7aef60046a3ea3ebdfc8b7dd, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a3a4850634249084cb33aca16811f8ae, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

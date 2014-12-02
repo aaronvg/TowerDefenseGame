@@ -29,14 +29,19 @@ public class TowerSelect : MonoBehaviour {
 		
 		Canvas c = GetComponentInChildren<Canvas>();
 		c.enabled = true;
+		c.gameObject.GetComponent<BoxCollider>().enabled = true;
 		
 		StartCoroutine(GrowRange(p));
 	}
 	
 	/* Used by world to deselect this tower */
 	void Deselect() {
-		Projector p = GetComponentInChildren<Projector>();		
-		GetComponentInChildren<Canvas>().enabled = false;
+		Projector p = GetComponentInChildren<Projector>();
+				
+		Canvas c = GetComponentInChildren<Canvas>();
+		c.enabled = false;
+		c.gameObject.GetComponent<BoxCollider>().enabled = false;
+		
 		StartCoroutine(ShrinkRange(p));
 	}
 	
