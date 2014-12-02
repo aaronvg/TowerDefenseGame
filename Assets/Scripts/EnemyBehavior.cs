@@ -18,16 +18,18 @@ public class EnemyBehavior : MonoBehaviour
 
     public Transform Destination;
     public GameObject gimmick;
-	private GameObject GameManager;
+	private GameObject _gameManager;
 
     public int NumPointDrops = 5;
     public int PointsPerDrop = 2;
+
+	public int AttackDamage = 5;
 
 	private bool ReachedEnd = false;
 	// Use this for initialization
 	void Start ()
 	{
-	    GameManager = GameObject.FindGameObjectWithTag("GameController");
+	    _gameManager = GameObject.FindGameObjectWithTag("GameController");
         _maxHealth = Health;
 
         // handle healthbar UI
@@ -59,6 +61,9 @@ public class EnemyBehavior : MonoBehaviour
 					//gimmick.GetComponent<GimmickResponseHandler>().SetEnemy (gameObject);
 					GameObject gim = Instantiate (gimmick, transform.position, Quaternion.identity) as GameObject;
 					gim.GetComponent<GimmickResponseHandler>().SetEnemy(gameObject);
+
+					// We're at pointB, so Attack the player!
+					InvokeRepeating("Attack", 0f, 1f);
 				}
 			}
 	    }
@@ -84,6 +89,12 @@ public class EnemyBehavior : MonoBehaviour
         }
     }
 
+	public void Attack()
+	{
+		_gameManager.SendMessage ("UpdateInternetPresencePoints", -AttackDamage);
+	}
+
+
 	void Death(){
 		Instantiate (deathAnimation, transform.position, transform.rotation);
 
@@ -100,6 +111,6 @@ public class EnemyBehavior : MonoBehaviour
 		Destroy(gameObject);
 
 		//GameManager.SendMessage ("UpdateCurrency", NumPoints);
-		GameManager.SendMessage ("KillEnemy");
+		_gameManager.SendMessage ("KillEnemy");
 	}
 }

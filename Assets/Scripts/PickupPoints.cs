@@ -20,7 +20,6 @@ public class PickupPoints : MonoBehaviour {
 		timeLeft -= Time.deltaTime;
         if (timeLeft < 0)
         {
-            _gameManager.SendMessage("UpdateCurrency", NumPoints);
 			Destroy(gameObject);
 		}
 

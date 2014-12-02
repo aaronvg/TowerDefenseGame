@@ -63,6 +63,10 @@ public class ScoreAndCurrencyManager : MonoBehaviour
 		if(currentInternetPresence > maxInternetPresencePossible) {
 			currentInternetPresence = maxInternetPresencePossible;
 		}
+
+		if (currentInternetPresence < 0)
+			currentInternetPresence = 0;
+
 		Debug.Log ("Current internet presence poitns updated to " + currentInternetPresence);
 	}
 
