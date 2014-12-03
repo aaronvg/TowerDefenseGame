@@ -57,6 +57,7 @@ public class EnemyBehavior : MonoBehaviour
                 SetDestination(pm.NextDestination);
 	        } else if(ReachedEnd == false){
 				ReachedEnd = true;
+				_gameManager.SendMessage("UpdateInternetPresencePoints", -10);
 				if(gimmick != null) {
 					//gimmick.GetComponent<GimmickResponseHandler>().SetEnemy (gameObject);
 					GameObject gim = Instantiate (gimmick, transform.position, Quaternion.identity) as GameObject;
