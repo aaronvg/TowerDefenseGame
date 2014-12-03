@@ -1,10 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 using System.Collections.Generic; // Queue, List, Dictionary
 
 
 public class ScoreAndCurrencyManager : MonoBehaviour
 {
+	public Slider internetBar;
+
 	private int internetPresenceRate;
 	private int currentInternetPresence;
 
@@ -16,7 +19,7 @@ public class ScoreAndCurrencyManager : MonoBehaviour
 	private int currentWave;
 
 	void Start() {
-		internetPresenceRate = 0;
+		internetPresenceRate = 5;
 		currentInternetPresence = 0;
 
 
@@ -48,7 +51,8 @@ public class ScoreAndCurrencyManager : MonoBehaviour
 		while(true) 
 		{ 
 			currentInternetPresence += internetPresenceRate;
-
+			internetBar.value = currentInternetPresence * .01f;
+			//Debug.Log ("Internet updated to " + currentInternetPresence);
 			if(currentInternetPresence > maxInternetPresencePossible) {
 				currentInternetPresence = maxInternetPresencePossible;
 			}
@@ -64,12 +68,12 @@ public class ScoreAndCurrencyManager : MonoBehaviour
 	}
 
 	// Updates the actual total we have right now for internet points.
-	void UpdateInternetPresencePoints(int points) {
+	public void UpdateInternetPresencePoints(int points) {
 		currentInternetPresence += points;
 		if(currentInternetPresence > maxInternetPresencePossible) {
 			currentInternetPresence = maxInternetPresencePossible;
 		}
-		Debug.Log ("Current internet presence poitns updated to " + currentInternetPresence);
+		Debug.Log ("Current internet presence points updated to " + currentInternetPresence);
 	}
 
 
