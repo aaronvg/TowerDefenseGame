@@ -21,7 +21,6 @@ public class ScoreAndCurrencyManager : MonoBehaviour
 
 
 		CurrencyTotal = 0;
-		CurrentCurrency = 10;
 		StartCoroutine ("UpdateInternetPresence");
 	}
 
@@ -33,11 +32,6 @@ public class ScoreAndCurrencyManager : MonoBehaviour
 
 
 	    // Update Score / Internet Presence UI
-
-
-
-	    // Calculate what we can buy and is unlocked.
-	    // Send message to another component, such as BuildingManager
 
 	}
 
@@ -69,6 +63,10 @@ public class ScoreAndCurrencyManager : MonoBehaviour
 		if(currentInternetPresence > maxInternetPresencePossible) {
 			currentInternetPresence = maxInternetPresencePossible;
 		}
+
+		if (currentInternetPresence < 0)
+			currentInternetPresence = 0;
+
 		Debug.Log ("Current internet presence poitns updated to " + currentInternetPresence);
 	}
 
