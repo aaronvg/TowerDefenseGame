@@ -9,7 +9,7 @@ public class ScoreAndCurrencyManager : MonoBehaviour
 	public Slider internetBar;
 
 	private int internetPresenceRate;
-	private int currentInternetPresence;
+	public int currentInternetPresence;
 
 	// The max points we can get for internet.
 	private int maxInternetPresencePossible = 100;
@@ -29,8 +29,6 @@ public class ScoreAndCurrencyManager : MonoBehaviour
 
 
 	void Update() {
-
-
 		// Update Currency UI
 
 

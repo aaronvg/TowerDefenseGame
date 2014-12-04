@@ -1602,6 +1602,14 @@ Prefab:
       propertyPath: internetBar
       value: 
       objectReference: {fileID: 2121678864}
+    - target: {fileID: 11400002, guid: 3d70d7c71454b314ebdbc06c89a02d3b, type: 2}
+      propertyPath: WinMessage
+      value: 
+      objectReference: {fileID: 100000, guid: 448130b74b0f4ab449dd7071a92fd466, type: 2}
+    - target: {fileID: 11400002, guid: 3d70d7c71454b314ebdbc06c89a02d3b, type: 2}
+      propertyPath: LoseMessage
+      value: 
+      objectReference: {fileID: 100016, guid: 2df02bdfaa29d8042ac238603e5d6485, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d70d7c71454b314ebdbc06c89a02d3b, type: 2}
   m_RootGameObject: {fileID: 1840543064}
@@ -5200,8 +5208,8 @@ MonoBehaviour:
   - {fileID: 100024, guid: 89ce067835e090a49a164e9270ecaf92, type: 2}
   - {fileID: 100000, guid: 1e94db744a0b38b4fa4f2ac060e0227f, type: 2}
   - {fileID: 100000, guid: 4a4817bb427f4694286f9c3007128292, type: 2}
-  WinMessage: {fileID: 0}
-  LoseMessage: {fileID: 0}
+  WinMessage: {fileID: 100000, guid: 448130b74b0f4ab449dd7071a92fd466, type: 2}
+  LoseMessage: {fileID: 100016, guid: 2df02bdfaa29d8042ac238603e5d6485, type: 2}
   state: 1
 --- !u!4 &1840543066
 Transform:
@@ -5228,6 +5236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   internetBar: {fileID: 2121678864}
+  currentInternetPresence: 0
   CurrencyTotal: 0
   CurrentCurrency: 100
 --- !u!114 &1840543068
