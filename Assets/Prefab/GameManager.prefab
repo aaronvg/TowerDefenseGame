@@ -41,6 +41,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72866aeb7f2e47c4a80a72d12b70f949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  internetBar: {fileID: 0}
+  CurrencyTotal: 0
+  CurrentCurrency: 100
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -60,6 +63,12 @@ MonoBehaviour:
   - {fileID: 100000, guid: 24a04563346d96443b4267226082b20a, type: 2}
   - {fileID: 100000, guid: 96e7d22498b21454bb91ccd5a0518820, type: 2}
   currentWave: 0
+  WaveMessages:
+  - {fileID: 100024, guid: 89ce067835e090a49a164e9270ecaf92, type: 2}
+  - {fileID: 100000, guid: 1e94db744a0b38b4fa4f2ac060e0227f, type: 2}
+  - {fileID: 100000, guid: 4a4817bb427f4694286f9c3007128292, type: 2}
+  WinMessage: {fileID: 0}
+  LoseMessage: {fileID: 0}
   state: 1
 --- !u!114 &11400004
 MonoBehaviour:
