@@ -251,7 +251,7 @@ Transform:
   m_GameObject: {fileID: 100014}
   m_LocalRotation: {x: .5, y: .5, z: .5, w: .5}
   m_LocalPosition: {x: 0, y: 0, z: -.699999988}
-  m_LocalScale: {x: .347999632, y: .347999573, z: .347999603}
+  m_LocalScale: {x: .347999603, y: .347999603, z: .347999603}
   m_Children:
   - {fileID: 400000}
   m_Father: {fileID: 400004}
@@ -918,7 +918,7 @@ Projector:
   m_AspectRatio: 1
   m_Orthographic: 1
   m_OrthographicSize: 9.99999994e-09
-  m_Material: {fileID: 2100000, guid: 78c0a732ad112a541100162a44295342, type: 2}
+  m_Material: {fileID: 2100000, guid: 252d0916ceb1bc244b15bf665ecc48d8, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
     m_Bits: 4294967039
