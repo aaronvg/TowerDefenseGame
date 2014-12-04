@@ -15,8 +15,8 @@ GameObject:
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: Enemy Test 2
-  m_TagString: Enemy
+  m_Name: SocialEnemy
+  m_TagString: SocialEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,8 +28,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.6660576, y: 1.57986939, z: 10.9920921}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -59,7 +59,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &5400000
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -91,9 +91,10 @@ MonoBehaviour:
   PointSphere: {fileID: 100000, guid: 16c2b8a168fec5b4ab69917d2fe72ebb, type: 2}
   Health: 4
   Destination: {fileID: 0}
-  gimmick: {fileID: 0}
-  GameManager: {fileID: 0}
-  NumPoints: 10
+  gimmick: {fileID: 100024, guid: 269bd4dbd2ca2554e85dfc0bd4c072ed, type: 2}
+  NumPointDrops: 5
+  PointsPerDrop: 2
+  AttackDamage: 5
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

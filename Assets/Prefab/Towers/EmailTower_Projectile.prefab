@@ -12,7 +12,7 @@ GameObject:
   - 122: {fileID: 12200000}
   - 96: {fileID: 9600000}
   m_Layer: 0
-  m_Name: Tower Projectile
+  m_Name: EmailTower_Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

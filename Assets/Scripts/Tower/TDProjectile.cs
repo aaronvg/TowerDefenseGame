@@ -31,7 +31,7 @@ public class TDProjectile : MonoBehaviour {
 		RaycastHit hit;
 		if(Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit, 2.0f * speed * Time.deltaTime)) {
 			// If it hits a target, destroy both the bullet and a target. Detach the particle system.
-			if(hit.collider.gameObject.tag == "Enemy") {
+			if(hit.collider.gameObject.tag == target.tag) {
 				hit.collider.gameObject.SendMessage("ApplyDamage", Damage, SendMessageOptions.DontRequireReceiver);
                 Destroy(gameObject);
 				transform.DetachChildren();
