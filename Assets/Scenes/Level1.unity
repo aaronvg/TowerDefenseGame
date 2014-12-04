@@ -1947,6 +1947,10 @@ Prefab:
       propertyPath: WaveMessages.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3d70d7c71454b314ebdbc06c89a02d3b, type: 2}
+      propertyPath: EnemyPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 3d70d7c71454b314ebdbc06c89a02d3b, type: 2}
       propertyPath: m_LocalPosition.x
       value: -3.29999995
@@ -1985,7 +1989,7 @@ Prefab:
       objectReference: {fileID: 882027902}
     - target: {fileID: 11400000, guid: 3d70d7c71454b314ebdbc06c89a02d3b, type: 2}
       propertyPath: CurrentCurrency
-      value: 100
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 3d70d7c71454b314ebdbc06c89a02d3b, type: 2}
       propertyPath: internetBar
@@ -2003,6 +2007,10 @@ Prefab:
       propertyPath: WaveMessages.Array.data[2]
       value: 
       objectReference: {fileID: 100000, guid: 4a4817bb427f4694286f9c3007128292, type: 2}
+    - target: {fileID: 11400002, guid: 3d70d7c71454b314ebdbc06c89a02d3b, type: 2}
+      propertyPath: EnemyPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 100000, guid: 231d7d3ee779250429653436c5f4fe94, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d70d7c71454b314ebdbc06c89a02d3b, type: 2}
   m_RootGameObject: {fileID: 1716764746}
@@ -5413,7 +5421,7 @@ MonoBehaviour:
   internetBar: {fileID: 1869944683}
   currentInternetPresence: 0
   CurrencyTotal: 0
-  CurrentCurrency: 100
+  CurrentCurrency: 40
 --- !u!114 &1716764749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5433,6 +5441,7 @@ MonoBehaviour:
   EnemyPrefabs:
   - {fileID: 100000, guid: 24a04563346d96443b4267226082b20a, type: 2}
   - {fileID: 100000, guid: 96e7d22498b21454bb91ccd5a0518820, type: 2}
+  - {fileID: 100000, guid: 231d7d3ee779250429653436c5f4fe94, type: 2}
   currentWave: 0
   WaveMessages:
   - {fileID: 100024, guid: 89ce067835e090a49a164e9270ecaf92, type: 2}

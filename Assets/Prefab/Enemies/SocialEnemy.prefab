@@ -122,7 +122,7 @@ MonoBehaviour:
   gimmick: {fileID: 100024, guid: 269bd4dbd2ca2554e85dfc0bd4c072ed, type: 2}
   NumPointDrops: 5
   PointsPerDrop: 2
-  AttackDamage: 5
+  AttackDamage: 3
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 0

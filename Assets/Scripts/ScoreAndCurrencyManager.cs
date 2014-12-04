@@ -19,7 +19,7 @@ public class ScoreAndCurrencyManager : MonoBehaviour
 	private int currentWave;
 
 	void Start() {
-		internetPresenceRate = 5;
+		internetPresenceRate = 1;
 		currentInternetPresence = 0;
 
 
