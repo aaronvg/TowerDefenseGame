@@ -2973,11 +2973,11 @@ MonoBehaviour:
   - {fileID: 46532658}
   - {fileID: 140554800}
   - {fileID: 991179134}
-  buildingCosts: 320000006400000090010000
+  buildingCosts: 3200000064000000c8000000
   BuildingPrefabs:
   - {fileID: 100000, guid: 1ec04da4c3dddcf41b22f0f28bbb57b0, type: 2}
-  - {fileID: 100000, guid: 16c2b8a168fec5b4ab69917d2fe72ebb, type: 2}
-  - {fileID: 100000, guid: 1ec04da4c3dddcf41b22f0f28bbb57b0, type: 2}
+  - {fileID: 100000, guid: 828d24b08ac55c0458a387dad4e9dc60, type: 2}
+  - {fileID: 100000, guid: 7d48a70500b6e4c488ec7cdd00849172, type: 2}
   WaveLabel: {fileID: 234831327}
 --- !u!1 &942078691
 GameObject:
@@ -3206,6 +3206,18 @@ Prefab:
     - target: {fileID: 22400110, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
       propertyPath: m_AnchoredPosition.y
       value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400106, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: BuildingPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 100000, guid: 828d24b08ac55c0458a387dad4e9dc60, type: 2}
+    - target: {fileID: 11400106, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: BuildingPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 100000, guid: 7d48a70500b6e4c488ec7cdd00849172, type: 2}
+    - target: {fileID: 11400106, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: buildingCosts.Array.data[2]
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
