@@ -2082,7 +2082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 30
-  PanThreshold: .0500000007
+  PanThreshold: .00999999978
 --- !u!1 &647197073
 GameObject:
   m_ObjectHideFlags: 0
@@ -5149,6 +5149,12 @@ MonoBehaviour:
   - {fileID: 100000, guid: 24a04563346d96443b4267226082b20a, type: 2}
   - {fileID: 100000, guid: 96e7d22498b21454bb91ccd5a0518820, type: 2}
   currentWave: 0
+  WaveMessages:
+  - {fileID: 100024, guid: 89ce067835e090a49a164e9270ecaf92, type: 2}
+  - {fileID: 100000, guid: 1e94db744a0b38b4fa4f2ac060e0227f, type: 2}
+  - {fileID: 100000, guid: 4a4817bb427f4694286f9c3007128292, type: 2}
+  WinMessage: {fileID: 0}
+  LoseMessage: {fileID: 0}
   state: 1
 --- !u!4 &1840543066
 Transform:
@@ -5488,6 +5494,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11400002, guid: 3d70d7c71454b314ebdbc06c89a02d3b, type: 2}
+      propertyPath: WaveMessages.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 3d70d7c71454b314ebdbc06c89a02d3b, type: 2}
       propertyPath: m_LocalPosition.x
       value: 9.06000042
@@ -5532,6 +5542,18 @@ Prefab:
       propertyPath: internetBar
       value: 
       objectReference: {fileID: 2121678864}
+    - target: {fileID: 11400002, guid: 3d70d7c71454b314ebdbc06c89a02d3b, type: 2}
+      propertyPath: WaveMessages.Array.data[0]
+      value: 
+      objectReference: {fileID: 100024, guid: 89ce067835e090a49a164e9270ecaf92, type: 2}
+    - target: {fileID: 11400002, guid: 3d70d7c71454b314ebdbc06c89a02d3b, type: 2}
+      propertyPath: WaveMessages.Array.data[1]
+      value: 
+      objectReference: {fileID: 100000, guid: 1e94db744a0b38b4fa4f2ac060e0227f, type: 2}
+    - target: {fileID: 11400002, guid: 3d70d7c71454b314ebdbc06c89a02d3b, type: 2}
+      propertyPath: WaveMessages.Array.data[2]
+      value: 
+      objectReference: {fileID: 100000, guid: 4a4817bb427f4694286f9c3007128292, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d70d7c71454b314ebdbc06c89a02d3b, type: 2}
   m_RootGameObject: {fileID: 1840543064}

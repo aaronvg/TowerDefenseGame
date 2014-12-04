@@ -20,6 +20,10 @@ public class EnemySpawnPoint : MonoBehaviour
 	// Points for each type of enemy, could probably move enemytype + points to a dictionary
 	private int[] EnemyPoints = {10, 50, 100};
 
+	public GameObject[] WaveMessages;
+	public GameObject WinMessage;
+	public GameObject LoseMessage;
+
 	public enum EnemyTypes 
 	{
 		spam = 0,
@@ -41,7 +45,7 @@ public class EnemySpawnPoint : MonoBehaviour
 	// Use this for initialization
 	void Start () {
 		Enemies = new ArrayList();
-
+		Instantiate(WaveMessages[currentWave], transform.position, Quaternion.identity);
 	}
 	
 	// Update is called once per frame
@@ -116,6 +120,8 @@ public class EnemySpawnPoint : MonoBehaviour
 
         // forward to UI (???)
         GameObject.FindGameObjectWithTag("UIRoot").SendMessage("EndWave");
+
+		Instantiate(WaveMessages[currentWave], transform.position, Quaternion.identity);
 	}
 
 
