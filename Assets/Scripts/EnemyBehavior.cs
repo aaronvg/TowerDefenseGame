@@ -26,6 +26,8 @@ public class EnemyBehavior : MonoBehaviour
 	public int AttackDamage = 5;
 
 	private bool ReachedEnd = false;
+
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -60,9 +62,12 @@ public class EnemyBehavior : MonoBehaviour
 				_gameManager.SendMessage("UpdateInternetPresencePoints", -10);
 				if(gimmick != null) {
 					//gimmick.GetComponent<GimmickResponseHandler>().SetEnemy (gameObject);
-					GameObject gim = Instantiate (gimmick, transform.position, Quaternion.identity) as GameObject;
-					gim.GetComponent<GimmickResponseHandler>().SetEnemy(gameObject);
 
+
+					//GameObject gim = Instantiate (gimmick, transform.position, Quaternion.identity) as GameObject;
+					//gim.GetComponent<GimmickResponseHandler>().SetEnemy(gameObject);
+
+					_gameManager.GetComponent<GimmickManager>().AddGimmick(gimmick, gameObject);
 					// We're at pointB, so Attack the player!
 					InvokeRepeating("Attack", 0f, 1f);
 				}
