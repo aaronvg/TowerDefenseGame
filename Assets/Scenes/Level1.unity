@@ -754,6 +754,34 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400118, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_Text
+      value: 'Knowledge Points:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400024, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_Text
+      value: 50 KP
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400026, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_Text
+      value: 50 KP
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400028, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_Text
+      value: 100 KP
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400030, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_Text
+      value: 100 KP
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400034, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_Text
+      value: 200 KP
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400032, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
+      propertyPath: m_Text
+      value: 200 KP
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c47478e6f7e7ff4699326013f14a212, type: 2}
   m_RootGameObject: {fileID: 892703348}
@@ -2859,7 +2887,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 50 MB
+  m_Text: 50 KP
 --- !u!222 &960504138
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3135,7 +3163,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 200 MB
+  m_Text: 200 KP
 --- !u!222 &1119491780
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3902,7 +3930,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100 MB
+  m_Text: 100 KP
 --- !u!222 &1399989054
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4156,7 +4184,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 200 MB
+  m_Text: 200 KP
 --- !u!222 &1465848650
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5779,7 +5807,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Disk Space:'
+  m_Text: 'Knowledge Points:'
 --- !u!222 &1836984982
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6288,7 +6316,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100 MB
+  m_Text: 100 KP
 --- !u!222 &1978145486
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6499,7 +6527,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 50 MB
+  m_Text: 50 KP
 --- !u!222 &2038784192
 CanvasRenderer:
   m_ObjectHideFlags: 0

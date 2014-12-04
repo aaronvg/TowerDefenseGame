@@ -67,7 +67,7 @@ public class UIMainController : MonoBehaviour
         // update label
         if (CurrencyValueText != null)
         {
-            CurrencyValueText.text = "Disk Space: " + Mathf.RoundToInt(_lerpCurrency) + " MB";
+            CurrencyValueText.text = "Knowledge Points: " + Mathf.RoundToInt(_lerpCurrency) + " KP";
         }
 
         // Build mode cancel
