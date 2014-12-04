@@ -1235,7 +1235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b621d2205a5841d4ab0d80b31e77ea06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 100000, guid: 211ed8134a1e43641a93f333ed2aa0b2, type: 2}
+  bullet: {fileID: 100002, guid: b556203c56df51b41978d154ab17167b, type: 2}
   fireRate: .600000024
   bulletSpawn: {fileID: 400000}
 --- !u!114 &11400002
@@ -1249,7 +1249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b621d2205a5841d4ab0d80b31e77ea06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 100000, guid: 211ed8134a1e43641a93f333ed2aa0b2, type: 2}
+  bullet: {fileID: 100002, guid: b556203c56df51b41978d154ab17167b, type: 2}
   fireRate: .600000024
   bulletSpawn: {fileID: 400004}
 --- !u!114 &11400004
@@ -1263,7 +1263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b621d2205a5841d4ab0d80b31e77ea06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 100000, guid: 211ed8134a1e43641a93f333ed2aa0b2, type: 2}
+  bullet: {fileID: 100002, guid: b556203c56df51b41978d154ab17167b, type: 2}
   fireRate: .600000024
   bulletSpawn: {fileID: 400008}
 --- !u!114 &11400006
@@ -1277,7 +1277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b621d2205a5841d4ab0d80b31e77ea06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 100000, guid: 211ed8134a1e43641a93f333ed2aa0b2, type: 2}
+  bullet: {fileID: 100002, guid: b556203c56df51b41978d154ab17167b, type: 2}
   fireRate: .600000024
   bulletSpawn: {fileID: 400020}
 --- !u!114 &11400008
@@ -2008,10 +2008,10 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 4278227456
+          rgba: 4278190243
         key1:
           serializedVersion: 2
-          rgba: 3014445
+          rgba: 255
         key2:
           serializedVersion: 2
           rgba: 16777215

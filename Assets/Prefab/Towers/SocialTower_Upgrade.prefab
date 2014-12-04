@@ -1514,7 +1514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b621d2205a5841d4ab0d80b31e77ea06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 100000, guid: 211ed8134a1e43641a93f333ed2aa0b2, type: 2}
+  bullet: {fileID: 100002, guid: 12b4bb441ad305c48b1b8419a81ae5b2, type: 2}
   fireRate: .600000024
   bulletSpawn: {fileID: 400000}
 --- !u!114 &11400024
@@ -1528,7 +1528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b621d2205a5841d4ab0d80b31e77ea06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 100000, guid: 211ed8134a1e43641a93f333ed2aa0b2, type: 2}
+  bullet: {fileID: 100002, guid: 12b4bb441ad305c48b1b8419a81ae5b2, type: 2}
   fireRate: .600000024
   bulletSpawn: {fileID: 400002}
 --- !u!114 &11400026
@@ -1542,7 +1542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b621d2205a5841d4ab0d80b31e77ea06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 100000, guid: 211ed8134a1e43641a93f333ed2aa0b2, type: 2}
+  bullet: {fileID: 100002, guid: 12b4bb441ad305c48b1b8419a81ae5b2, type: 2}
   fireRate: .600000024
   bulletSpawn: {fileID: 400008}
 --- !u!114 &11400028
@@ -1556,7 +1556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b621d2205a5841d4ab0d80b31e77ea06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 100000, guid: 211ed8134a1e43641a93f333ed2aa0b2, type: 2}
+  bullet: {fileID: 100002, guid: 12b4bb441ad305c48b1b8419a81ae5b2, type: 2}
   fireRate: .600000024
   bulletSpawn: {fileID: 400010}
 --- !u!114 &11400030
@@ -1612,7 +1612,7 @@ Projector:
   m_AspectRatio: 1
   m_Orthographic: 1
   m_OrthographicSize: 9.99999994e-09
-  m_Material: {fileID: 2100000, guid: 78c0a732ad112a541100162a44295342, type: 2}
+  m_Material: {fileID: 2100000, guid: 534282f61d850e046aa150dfed6152bf, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
     m_Bits: 4294967039
@@ -2008,10 +2008,10 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 4278227456
+          rgba: 4294901760
         key1:
           serializedVersion: 2
-          rgba: 3014445
+          rgba: 16776960
         key2:
           serializedVersion: 2
           rgba: 16777215
