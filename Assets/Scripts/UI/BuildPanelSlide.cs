@@ -66,7 +66,7 @@ public class BuildPanelSlide : MonoBehaviour {
 
 	/* Slides a panel in from offscreen */
 	IEnumerator SlideIn(RectTransform panel) {
-		while(panel.position.x <= width / 2) {
+		while(panel.position.x < width / 2 - speed * Time.deltaTime) {
 			panel.position += new Vector3(speed * Time.deltaTime, 0, 0);
 			yield return null;	
 		}
@@ -75,7 +75,7 @@ public class BuildPanelSlide : MonoBehaviour {
 	
 	/* Slides a panel out from onscreen */
 	IEnumerator SlideOut(RectTransform panel) {
-		while(panel.position.x >= -width) {
+		while(panel.position.x > -width) {
 			panel.position -= new Vector3(speed * Time.deltaTime, 0, 0);
 			yield return null;	
 		}
@@ -87,14 +87,14 @@ public class BuildPanelSlide : MonoBehaviour {
 		isSwapping = true;
 	
 		// slide old panel out
-		while(from.position.x >= -width) {
+		while(from.position.x > -width) {
 			from.position -= new Vector3(speed * Time.deltaTime, 0, 0);
 			yield return null;	
 		}
 		from.position = new Vector3(-width, from.position.y, from.position.z);
 		
 		// Slide new panel in
-		while(to.position.x <= width / 2) {
+		while(to.position.x < width / 2 - speed * Time.deltaTime) {
 			to.position += new Vector3(speed * Time.deltaTime, 0, 0);
 			yield return null;	
 		}
