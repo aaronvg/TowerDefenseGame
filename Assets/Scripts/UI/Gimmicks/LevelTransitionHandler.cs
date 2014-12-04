@@ -12,6 +12,6 @@ public class LevelTransitionHandler : MonoBehaviour {
 	}
 
 	void ResetGame() {
-		Application.LoadLevel ("DebugLevel");
+		Application.LoadLevel ("Level1");
 	}
 }

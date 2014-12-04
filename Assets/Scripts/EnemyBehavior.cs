@@ -23,7 +23,7 @@ public class EnemyBehavior : MonoBehaviour
     public int NumPointDrops = 5;
     public int PointsPerDrop = 2;
 
-	public int AttackDamage = 5;
+	public float AttackDamage = 5f;
 
 	private bool ReachedEnd = false;
 
@@ -69,7 +69,7 @@ public class EnemyBehavior : MonoBehaviour
 
 					_gameManager.GetComponent<GimmickManager>().AddGimmick(gimmick, gameObject);
 					// We're at pointB, so Attack the player!
-					InvokeRepeating("Attack", 0f, 1f);
+					InvokeRepeating("Attack", 0f, 1f/4f);
 				}
 			}
 	    }
@@ -97,7 +97,7 @@ public class EnemyBehavior : MonoBehaviour
 
 	public void Attack()
 	{
-		_gameManager.SendMessage ("UpdateInternetPresencePoints", -AttackDamage);
+		_gameManager.SendMessage ("UpdateInternetPresencePoints", -AttackDamage/4f);
 	}
 
 

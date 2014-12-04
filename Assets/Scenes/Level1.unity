@@ -5348,6 +5348,7 @@ GameObject:
   - 114: {fileID: 1716764749}
   - 114: {fileID: 1716764748}
   - 114: {fileID: 1716764747}
+  - 114: {fileID: 1716764751}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -5382,6 +5383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   internetBar: {fileID: 1869944683}
+  currentInternetPresence: 0
   CurrencyTotal: 0
   CurrentCurrency: 100
 --- !u!114 &1716764749
@@ -5408,8 +5410,8 @@ MonoBehaviour:
   - {fileID: 100024, guid: 89ce067835e090a49a164e9270ecaf92, type: 2}
   - {fileID: 100000, guid: 1e94db744a0b38b4fa4f2ac060e0227f, type: 2}
   - {fileID: 100000, guid: 4a4817bb427f4694286f9c3007128292, type: 2}
-  WinMessage: {fileID: 0}
-  LoseMessage: {fileID: 0}
+  WinMessage: {fileID: 100000, guid: 448130b74b0f4ab449dd7071a92fd466, type: 2}
+  LoseMessage: {fileID: 100016, guid: 2df02bdfaa29d8042ac238603e5d6485, type: 2}
   state: 1
 --- !u!4 &1716764750
 Transform:
@@ -5423,6 +5425,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
+--- !u!114 &1716764751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400006, guid: 3d70d7c71454b314ebdbc06c89a02d3b,
+    type: 2}
+  m_PrefabInternal: {fileID: 686809550}
+  m_GameObject: {fileID: 1716764746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed743caa14d4a0643aecf9ecd2f2ab1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1750821524
 GameObject:
   m_ObjectHideFlags: 0
