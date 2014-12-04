@@ -66,7 +66,31 @@ public class EmailComposer : MonoBehaviour {
 		          "i got an email account!",
 
 		          "hello sweetie its your mother. i just wanted to let u know that i finally got an email " +
-		          "account like u told me to. please respond so i can know if im using it right! ")
+		          "account like u told me to. please respond so i can know if im using it right! "),
+		 
+		new Email("management@towertech.org",
+		          "Congratulations, you’ve won!",
+		          
+		          "We here at management have been very impressed with your work over the last few months. " +
+		          "As such, we have selected you as our employee of the month! Please respond to this email " + 
+		          "to officially accept your award. Failing to reply will cause this month’s award to go to " +
+		          "our second choice candidate. Keep up the great work!"),
+		          
+		new Email("captainmurphy@lotusmail.net",
+		          "Your skydiving session has been canceled",
+		 		   
+		          "Captain Murphy here. I regret to inform you that your currently scheduled skydiving session " +
+		          "has been canceled. Please reply to this email with your future availability so we can " +
+		          "reschedule your drop. Thank you, and I apologize for any inconvenience this may have caused."
+		 ),
+		 
+		new Email("reservations@europeanvegas.com",
+		          "A new room has been made available!",
+		          
+		          "Dear sir or madame, we are pleased to inform you that due to a recent cancellation you are " +
+		          "eligible for a free upgrade to a master suite for the duration of your upcoming trip to " +
+		          "European Vegas hotel and casino. Please respond promptly to confirm that you would like " +
+		          "to accept this offer. We look forward to your visit!")
 	};
 
 	private static Email[] bad = {
@@ -112,13 +136,41 @@ public class EmailComposer : MonoBehaviour {
 		          "to you seeking a small monetary favor to secure my passage home. Once I arrive in " +
 		          "my home country, I will use my position and influence to ensure that your favor " +
 		          "will be repaid tenfold. I plead you to respond with all due haste lest our " +
-		          "communications be further impeded.")
+		          "communications be further impeded."),
+		          
+			new Email("ivdamke@greatdealsonline.ru",
+			          "great software deal",
+			          
+			          "Find great software deal online! No one beats our deal! software deals that" +
+			          "cant be beat!! 9 in 10 people cant find good software deal online! all great " +
+			          "deals found here!"),
+			          
+			new Email("yourhealthstartshere@chreaksdugisk.ru",
+			          "Your health starts here!",
+			          
+			          "With years to come, your life will only become better. Find all the prescription " +
+			          "deals you need right here. No prescription needed, get the pills you need fast " +
+			          "and cheap. Order now!"),
+			          
+			new Email("richardmoreau@nowdeals.co.uk",
+			          "Children of the Cathedral",
+			          
+			          "One time offer! No time to wait! Reply now to gain access to the greatest things " +
+			          "on earth! The energy is flowing! The numbers are increasing! Soon there will be " +
+			          "everything, but only if you act now! The time has begun, the process cannot be " +
+			          "stopped. Become a part of The Unity!")
 	};
 	
 	void Start () {
 		Email msg;
+		GimmickResponseHandler grh = GetComponent<GimmickResponseHandler>();
+		
+		if(Random.Range(0, 2) == 1)
+			grh.isGood = true;
+		else
+			grh.isGood = false;
 
-		if(GetComponent<GimmickResponseHandler> ().isGood)
+		if(grh.isGood)
 			msg = good [Random.Range (0, good.Length)];
 		else
 			msg = bad [Random.Range (0, bad.Length)];

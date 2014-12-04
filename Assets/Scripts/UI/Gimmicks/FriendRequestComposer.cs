@@ -94,8 +94,14 @@ public class FriendRequestComposer : MonoBehaviour {
 
 	void Start () {
 		FriendRequest fr;
+		GimmickResponseHandler grh = GetComponent<GimmickResponseHandler>();
+		
+		if(Random.Range(0, 2) == 1)
+			grh.isGood = true;
+		else
+			grh.isGood = false;
 
-		if (GetComponent<GimmickResponseHandler> ().isGood) {
+		if (grh.isGood) {
 			int i = Random.Range (0, good.Length);
 			fr = good[i];
 			profilePic.sprite = goodPics[i];

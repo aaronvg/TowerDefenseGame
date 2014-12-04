@@ -53,8 +53,14 @@ public class DownloadComposer : MonoBehaviour {
 
 	void Start () {
 		Download dl;
+		GimmickResponseHandler grh = GetComponent<GimmickResponseHandler>();
 		
-		if(GetComponent<GimmickResponseHandler> ().isGood)
+		if(Random.Range(0, 2) == 1)
+			grh.isGood = true;
+		else
+			grh.isGood = false;
+		
+		if(grh.isGood)
 			dl = good [Random.Range (0, good.Length)];
 		else
 			dl = bad [Random.Range (0, bad.Length)];
