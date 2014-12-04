@@ -6,4 +6,8 @@ public class LevelTransitionHandler : MonoBehaviour {
 	void Ready() {
 		Destroy(gameObject);
 	}
+
+	void ResetGame() {
+		Application.LoadLevel ("DebugLevel");
+	}
 }
