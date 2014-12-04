@@ -10,4 +10,8 @@ public class LevelTransitionHandler : MonoBehaviour {
 		//buttonToActivate.interactable = true;
 		Destroy(gameObject);
 	}
+
+	void ResetGame() {
+		Application.LoadLevel ("Level1");
+	}
 }

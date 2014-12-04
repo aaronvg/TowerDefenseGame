@@ -23,6 +23,7 @@ public class EnemySpawnPoint : MonoBehaviour
 	public GameObject[] WaveMessages;
 	public GameObject WinMessage;
 	public GameObject LoseMessage;
+	private bool Lost = false;
 
 	public enum EnemyTypes 
 	{
@@ -58,6 +59,15 @@ public class EnemySpawnPoint : MonoBehaviour
 		if (Enemies.Count == 0 && state == GameState.waveInProgress) {
 			EndWave ();
 		}
+
+
+		if (GetComponent<ScoreAndCurrencyManager> ().currentInternetPresence <= 0 && Lost == false) 
+		{
+			// End game with lose message
+			Instantiate(LoseMessage, transform.position, Quaternion.identity);
+			Lost = true;
+		}
+
 	}
 
     void SpawnEnemy()
@@ -147,6 +157,14 @@ public class EnemySpawnPoint : MonoBehaviour
 		state = GameState.intermission;
 		Enemies.Clear ();
 
+
+		if (currentWave == 9) {
+			// end the game
+			Instantiate(WinMessage, transform.position, Quaternion.identity);
+			return;
+		}
+
+
         // forward to UI (???)
         GameObject.FindGameObjectWithTag("UIRoot").SendMessage("EndWave");
 
@@ -159,6 +177,7 @@ public class EnemySpawnPoint : MonoBehaviour
 
 	}
 
+	// 5am hackyness
 	public void LevelTransition1() {
 		Instantiate(WaveMessages[1], transform.position, Quaternion.identity);
 	}

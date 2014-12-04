@@ -11,6 +11,7 @@ GameObject:
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400004}
+  - 114: {fileID: 11400006}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -41,6 +42,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72866aeb7f2e47c4a80a72d12b70f949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  internetBar: {fileID: 0}
+  currentInternetPresence: 0
+  CurrencyTotal: 0
+  CurrentCurrency: 100
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -60,6 +65,12 @@ MonoBehaviour:
   - {fileID: 100000, guid: 24a04563346d96443b4267226082b20a, type: 2}
   - {fileID: 100000, guid: 96e7d22498b21454bb91ccd5a0518820, type: 2}
   currentWave: 0
+  WaveMessages:
+  - {fileID: 100024, guid: 89ce067835e090a49a164e9270ecaf92, type: 2}
+  - {fileID: 100000, guid: 1e94db744a0b38b4fa4f2ac060e0227f, type: 2}
+  - {fileID: 100000, guid: 4a4817bb427f4694286f9c3007128292, type: 2}
+  WinMessage: {fileID: 100000, guid: 448130b74b0f4ab449dd7071a92fd466, type: 2}
+  LoseMessage: {fileID: 100016, guid: 2df02bdfaa29d8042ac238603e5d6485, type: 2}
   state: 1
 --- !u!114 &11400004
 MonoBehaviour:
@@ -74,6 +85,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsConstructing: 0
   ConstructingWhat: {fileID: 0}
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed743caa14d4a0643aecf9ecd2f2ab1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
