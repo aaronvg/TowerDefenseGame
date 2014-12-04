@@ -2706,8 +2706,8 @@ MonoBehaviour:
   towerCosts: 3200000064000000c8000000
   TowerBuildingPrefabs:
   - {fileID: 100002, guid: 6802b4f0022bb1549aae571793f79f8d, type: 2}
-  - {fileID: 100042, guid: 3aaf83eb93f6f184ca77e3414fc0e169, type: 2}
-  - {fileID: 100002, guid: 6802b4f0022bb1549aae571793f79f8d, type: 2}
+  - {fileID: 100024, guid: d30c01f95bbcc2a4c9e7bfebcd672da7, type: 2}
+  - {fileID: 100024, guid: 7f6adb9a2a633bf4b9a9e00892be8f0c, type: 2}
   buildingButtons:
   - {fileID: 11400066}
   - {fileID: 11400070}
