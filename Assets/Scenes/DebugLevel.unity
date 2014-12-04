@@ -2016,7 +2016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 30
-  PanThreshold: .0500000007
+  PanThreshold: .00999999978
 --- !u!1 &647197073
 GameObject:
   m_ObjectHideFlags: 0
