@@ -31,7 +31,7 @@ public class GimmickResponseHandler : MonoBehaviour {
 		Debug.Log("Action on reply");
 		if (isGood) {
 			// do something good
-			GameManager.SendMessage("UpdateCurrency", 2);
+			GameManager.SendMessage("UpdateCurrency", 20);
 			GameManager.SendMessage("UpdateInternetPresencePoints", 10);
 		}
 		else {
@@ -50,7 +50,7 @@ public class GimmickResponseHandler : MonoBehaviour {
 		}
 		else {
 			// do something good
-			GameManager.SendMessage("UpdateCurrency", 2);
+			GameManager.SendMessage("UpdateCurrency", 20);
 			GameManager.SendMessage("UpdateInternetPresencePoints", 10);
 		}
 		Destroy (gameObject);
