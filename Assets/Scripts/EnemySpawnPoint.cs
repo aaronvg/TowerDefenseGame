@@ -85,23 +85,52 @@ public class EnemySpawnPoint : MonoBehaviour
 		if (state == GameState.intermission) {
 			switch (currentWave) 
 			{
-				// wave 0 is just a spam email
+				// Phase 0
 			case 0:
 				AddEnemy (EnemyTypes.spam, 1);
 				break;
 
 			case 1:
-				AddEnemy (EnemyTypes.spam, 2);
-				AddEnemy (EnemyTypes.bot, 2);
+				AddEnemy (EnemyTypes.spam, 3);
+
 				break;
 				
 			case 2:
-				AddEnemy (EnemyTypes.bot, 2);
+				AddEnemy (EnemyTypes.spam, 4);
 				break;
-				
+
+			// Phase 1
 			case 3:
 				AddEnemy (EnemyTypes.spam, 2);
+				AddEnemy (EnemyTypes.bot, 1);
 				break;
+
+			case 4:
+				AddEnemy (EnemyTypes.spam, 4);
+				AddEnemy (EnemyTypes.bot, 2);
+				break;
+			
+			case 5:
+				AddEnemy (EnemyTypes.spam, 6);
+				AddEnemy (EnemyTypes.bot, 4);
+				break;
+
+		    // Phase 3
+			case 6:
+				AddEnemy(EnemyTypes.virus, 1);
+				break;
+
+			case 7:
+				AddEnemy(EnemyTypes.virus, 2);
+				break;
+
+			case 8:
+				AddEnemy(EnemyTypes.spam, 4);
+				AddEnemy(EnemyTypes.bot, 4);
+				AddEnemy(EnemyTypes.virus, 2);
+				break;
+
+
 			}
 
 			print ("Started Wave " + currentWave);
@@ -121,9 +150,21 @@ public class EnemySpawnPoint : MonoBehaviour
         // forward to UI (???)
         GameObject.FindGameObjectWithTag("UIRoot").SendMessage("EndWave");
 
-		Instantiate(WaveMessages[currentWave], transform.position, Quaternion.identity);
+		if(currentWave == 3) {
+			Invoke("LevelTransition1", 2);
+		}
+		if(currentWave == 6) {
+			Invoke("LevelTransition2", 2);
+		}
+
 	}
 
+	public void LevelTransition1() {
+		Instantiate(WaveMessages[1], transform.position, Quaternion.identity);
+	}
+	public void LevelTransition2() {
+		Instantiate(WaveMessages[2], transform.position, Quaternion.identity);
+	}
 
 	void AddEnemy(EnemyTypes type, int amount) 
 	{
